@@ -1,0 +1,87 @@
+<!-- 
+    MAIN PAGE
+
+Admin privlages
+    - view as user button (set preferences mannually?) => NOT MVP
+
+Article view
+    - website icon?
+    - search bar
+    - user icon? w/ logout and edit profile drop down? - not MVP
+    - logout button
+    - slide with - for you, business, entertainment, general, healt, science, sports, technology
+    - sort by date created - newest on top (backend)
+    - sidebar with staff favorites? - NOT MVP
+    - list of articles within category (dynamically added based on category)
+        - article name
+        - author name
+        - article description
+        - image
+        - tags
+
+-->
+
+<div class="articles-container">
+  {{#each dishes as |dish|}}
+  <div class="dish col-md-4">
+    <p>
+      {{dish.id}}.
+      {{dish.dish_name}}
+    </p>
+  </div>
+  <div class="col-md-5">
+    <p>
+      Guest:
+      {{dish.guest_name}}
+    </p>
+  </div>
+  <div class="col-md-3">
+    🥜: {{#if dish.has_nuts}} Contains nuts {{else}} No nuts {{/if}}
+  </div>
+  {{/each}}
+  <!-- This is the form for adding a new dish -->
+  <div class="add-dish-container">
+    <h2>
+      RSVP with the dish you plan to bring!
+    </h2>
+    <form class="new-dish-form">
+      <label for="dish_name">
+        Dish Name:
+      </label>
+      <br />
+      <textarea id="dish_name" name="dish_name" rows="2" cols="30">
+      {{dish_name}}
+    </textarea>
+      <br />
+      <label for="description">
+        Description:
+      </label>
+      <br />
+      <textarea id="description" name="description" rows="5" cols="30">
+      {{description}}
+    </textarea>
+      <br />
+      <label for="guest_name">
+        Guest Name:
+      </label>
+      <br />
+      <textarea id="guest_name" name="guest_name" rows="2" cols="30">
+      {{guest_name}}
+    </textarea>
+      <br />
+      <br />
+      {{#if has_nuts}}
+      <input type="checkbox" id="has_nuts" name="has_nuts" checked />
+      {{else}}
+      <input type="checkbox" id="has_nuts" name="has_nuts" />
+      {{/if}}
+      <label for="has_nuts">
+        Check box if this dish contains nuts
+      </label>
+      <br />
+      <button type="submit" value="Submit">
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
