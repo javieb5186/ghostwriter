@@ -22,8 +22,8 @@
             <input class="input" type="text" placeholder="SEARCH GHOSTWRITER" aria-label="search">
         </div>
       </div>
-    <!-- category selection tabs -->
-      <div class="tabs is-centered">
+    <!-- category selection tabs (tablet and bigger) -->
+      <div class="tabs is-centered hide">
         <ul>
           <li class="is-active"><a>for you</a></li>
           <li><a>business</a></li>
@@ -35,6 +35,47 @@
           <li><a>technology</a></li>
         </ul>
       </div>
+      <!-- category selection tabs (smaller than tablet) -->
+      <div class="dropdown hide">
+        <div class="dropdown-trigger">
+          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
+            <span>
+                <ion-icon class="icon is-medium" name="menu-outline"></ion-icon>
+            </span>
+          </button>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+          <div class="dropdown-content">
+            <a href="#" class="dropdown-item">
+              for you
+            </a>
+            <a href="#" class="dropdown-item">
+              business
+            </a>
+            <a href="#" class="dropdown-item">
+              entertainment
+            </a>
+            <a href="#" class="dropdown-item">
+              general
+            </a>
+            <a href="#" class="dropdown-item">
+              health
+            </a>
+            <a href="#" class="dropdown-item">
+              science
+            </a>
+            <a href="#" class="dropdown-item">
+              sports
+            </a>
+            <a href="#" class="dropdown-item">
+              technology
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+
     <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
 
     <div class="card is-horizontal"> 
