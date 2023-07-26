@@ -3,18 +3,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ghostwriter</title>
-    <link rel="stylesheet" href="/develop/public/css/main.css"
+    <link rel="stylesheet" href="/develop/public/css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
 <body>
-    <h1 class="title is-uppercase">Ghostwriter</h1>
+    <h1 class="title is-uppercase has-text-centered">Ghostwriter</h1>
     <!-- search bar, logout button -->
-    <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <input type="text" placeholder="SEARCH GHOSTWRITER" aria-label="search">
+    <div class="field is-grouped">
+        <p class="control is-expanded has-icon-left">
+          <input class="input" type="text" placeholder="SEARCH GHOSTWRITER" aria-label="search">
+          <span class="icon is-small is-left">
+            <ion-icon name="search-outline"></ion-icon>
+          </span>
+        </p>
+        <p class="control">
+          <a class="button is-info">
+            Search
+          </a>
+        </p>
+        <p class="control">
+            <a class="button is-info is-uppercase">
+              Logout
+            </a>
+        </p>
       </div>
     <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
