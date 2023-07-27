@@ -19,16 +19,11 @@ const SourceArticles = sequelize.define('SourceArticles', {
     type: DataTypes.STRING,
     allowNull: true,
   },
+}, {
+  sequelize,
+  timestamps: false,
+  underscored: true,
+  modelName: 'SourceArticles',
 });
-
-// Sync the model with the database (create the table if it doesn't exist)
-(async () => {
-  try {
-    await sequelize.sync();
-    console.log('SourceArticles table has been created (if not existed).');
-  } catch (error) {
-    console.error('Error syncing the database:', error);
-  }
-})();
 
 module.exports = SourceArticles;
