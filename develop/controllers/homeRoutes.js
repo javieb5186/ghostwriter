@@ -32,4 +32,12 @@ router.get('/aboutyou', async (req, res) => {
   }
 });
 
+router.get('/main-news', async (req, res) => {
+  try {
+    res.render('mainNews');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
