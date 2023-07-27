@@ -4,7 +4,7 @@ const Content = require('../models/Content');
 const Article = require('../models/Article');
 
 const userData = require('./userData.json');
-const articleData = require('./articleData.json');
+const articleData = require('./sourceArticleData');
 const contentData = require('./contentData.json');
 
 const seedDatabase = async () => {
@@ -12,7 +12,7 @@ const seedDatabase = async () => {
 
   await User.bulkCreate(userData);
   await Content.bulkCreate(contentData);
-  await Article.bulkCreate(articleData);
+  await SourceArticles.bulkCreate(sourceArticleData);
 
   process.exit(0);
 };
