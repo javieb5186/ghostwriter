@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require("sequelize");
-const { sequelize } = require("../config/database");
+const { DataTypes } = require('sequelize');
+const { sequelize } = require('../config/connection');
 
 // Define the SourceArticles model
 const SourceArticles = sequelize.define('SourceArticles', {
@@ -32,4 +32,3 @@ const SourceArticles = sequelize.define('SourceArticles', {
 })();
 
 module.exports = SourceArticles;
-
