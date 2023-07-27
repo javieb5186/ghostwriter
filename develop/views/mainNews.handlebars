@@ -121,7 +121,7 @@
       <div id="tab-for-you" class="tabcontent">
         <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
             {{#each articles as |article|}}
-            <div class="card is-horizontal container is-fluid"> 
+            <div class="card is-horizontal container article is-fluid"> 
                 <div class="card-image is-right is-small">
                   <figure class="image is-2by1">
                     <img
@@ -141,7 +141,7 @@
                     <p>{{article}}</p>
                     {{#each tag as |articleTags|}}
                     <div class="buttons">
-                        <button class="button">{{tag}}</button>
+                        <button class="button">{{category}}</button>
                     </div>
                     {{/each}}
                 </div>
@@ -152,7 +152,7 @@
       <div id="tab-business" class="is-hidden tabcontent">
             <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
             {{#each articles as |article|}}
-            <div class="card is-horizontal container is-fluid"> 
+            <div class="card is-horizontal container article is-fluid"> 
                 <div class="card-image is-right is-small">
                   <figure class="image is-2by1">
                     <img
@@ -183,7 +183,7 @@
       <div id="tab-entertainment" class="is-hidden tabcontent">
             <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
             {{#each articles as |article|}}
-            <div class="card is-horizontal container is-fluid"> 
+            <div class="card is-horizontal container article is-fluid"> 
                 <div class="card-image is-right is-small">
                   <figure class="image is-2by1">
                     <img
@@ -203,7 +203,7 @@
                     <p>{{article}}</p>
                     {{#each tag as |articleTags|}}
                     <div class="buttons">
-                        <button class="button">{{tag}}</button>
+                        <button class="button">{{category}}</button>
                     </div>
                     {{/each}}
                 </div>
@@ -214,7 +214,7 @@
       <div id="tab-general" class="is-hidden tabcontent">
             <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
             {{#each articles as |article|}}
-            <div class="card is-horizontal container is-fluid"> 
+            <div class="card is-horizontal container article is-fluid"> 
                 <div class="card-image is-right is-small">
                   <figure class="image is-2by1">
                     <img
@@ -234,7 +234,7 @@
                     <p>{{article}}</p>
                     {{#each tag as |articleTags|}}
                     <div class="buttons">
-                        <button class="button">{{tag}}</button>
+                        <button class="button">{{category}}</button>
                     </div>
                     {{/each}}
                 </div>
@@ -245,7 +245,7 @@
       <div id="tab-health" class="is-hidden tabcontent">
                 <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
             {{#each articles as |article|}}
-            <div class="card is-horizontal container is-fluid"> 
+            <div class="card is-horizontal container article is-fluid"> 
                 <div class="card-image is-right is-small">
                   <figure class="image is-2by1">
                     <img
@@ -265,7 +265,7 @@
                     <p>{{article}}</p>
                     {{#each tag as |articleTags|}}
                     <div class="buttons">
-                        <button class="button">{{tag}}</button>
+                        <button class="button">{{category}}</button>
                     </div>
                     {{/each}}
                 </div>
@@ -276,7 +276,7 @@
       <div id="tab-science" class="is-hidden tabcontent">
                 <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
             {{#each articles as |article|}}
-            <div class="card is-horizontal container is-fluid"> 
+            <div class="card is-horizontal container article is-fluid"> 
                 <div class="card-image is-right is-small">
                   <figure class="image is-2by1">
                     <img
@@ -296,7 +296,7 @@
                     <p>{{article}}</p>
                     {{#each tag as |articleTags|}}
                     <div class="buttons">
-                        <button class="button">{{tag}}</button>
+                        <button class="button">{{category}}</button>
                     </div>
                     {{/each}}
                 </div>
@@ -307,7 +307,7 @@
       <div id="tab-sports" class="is-hidden tabcontent">
             <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
             {{#each articles as |article|}}
-            <div class="card is-horizontal container is-fluid"> 
+            <div class="card is-horizontal container article is-fluid"> 
                 <div class="card-image is-right is-small">
                   <figure class="image is-2by1">
                     <img
@@ -327,7 +327,7 @@
                     <p>{{article}}</p>
                     {{#each tag as |articleTags|}}
                     <div class="buttons">
-                        <button class="button">{{tag}}</button>
+                        <button class="button">{{category}}</button>
                     </div>
                     {{/each}}
                 </div>
@@ -338,7 +338,7 @@
       <div id="tab-technology" class="is-hidden tabcontent">
             <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
             {{#each articles as |article|}}
-            <div class="card is-horizontal container is-fluid"> 
+            <div class="card is-horizontal container article is-fluid"> 
                 <div class="card-image is-right is-small">
                   <figure class="image is-2by1">
                     <img
@@ -358,7 +358,7 @@
                     <p>{{article}}</p>
                     {{#each tag as |articleTags|}}
                     <div class="buttons">
-                        <button class="button">{{tag}}</button>
+                        <button class="button">{{category}}</button>
                     </div>
                     {{/each}}
                 </div>
@@ -370,7 +370,7 @@
 
     <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
     {{!-- {{#each articles as |article|}}
-    <div class="card is-horizontal container is-fluid"> 
+    <div class="card is-horizontal container article is-fluid"> 
         <div class="card-image is-right is-small">
           <figure class="image is-2by1">
             <img
