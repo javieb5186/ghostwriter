@@ -1,11 +1,23 @@
 const router = require('express').Router();
 const User = require('../../models/User');
 
+router.get('/signup/:email', async (req, res) => {
+  try {
+    const userData = await User.findOne({ where: { email: req.params.email } });
+    if (userData) {
+      res.status(200).send({ emailExists: true });
+    } else {
+      res.status(200).send({ emailExists: false });
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
     const validLogIn = await userData.checkPassword(req.body.password);
-    console.log(validLogIn);
     if (validLogIn) {
       res.status(200).json(userData);
     } else {
@@ -25,11 +37,9 @@ router.post('/signup', async (req, res) => {
         name: req.body.n,
         email: req.body.email,
         password: req.body.password,
-        preferences: req.body.pref,
+        profileIcon: req.body.profileIconSrc,
       });
       res.status(200).json(dbUserData);
-      console.log('Preferences are: ');
-      console.log(dbUserData.getPreferences());
     } else {
       res.status(404).send('User already exists');
     }
