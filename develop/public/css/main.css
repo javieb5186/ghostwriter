@@ -1,7 +1,5 @@
-.hide {
-    display: none;
+html {
+    font-family: 'Raleway', sans-serif;
 }
 
-@media screen and (max-width: 768px) {
-    
-}
+/* customize Bulma if there is time to add more design elements and change the fonts */
