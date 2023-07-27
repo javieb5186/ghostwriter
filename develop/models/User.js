@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 class User extends Model {
   checkPassword(loginPw) {
-    const isPassword = this.password.includes(loginPw);
+    const isPassword = (this.password === loginPw);
     return isPassword;
   }
 
@@ -36,6 +36,10 @@ User.init(
       validate: {
         len: [6],
       },
+    },
+    profileIcon: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     preferences: {
       type: DataTypes.JSON,
