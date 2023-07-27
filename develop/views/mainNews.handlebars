@@ -23,29 +23,31 @@ Article view
 
 <body>
     <section class="level pt-6 pb-4">
-        <!-- invisible back button (to be activated with authorized users) -->
-        <button class="button is-large is-white is-rounded level-left is-invisible" aria-haspopup="true" aria-controls="dropdown-menu">
-        <span class="icon is-large level-item">
-            <ion-icon name="arrow-back-outline"></ion-icon>
-        </span>
+        {{#if admin = true}}
+        <!-- back button (to be activated with authorized users) -->
+        <button class="button is-large is-white is-rounded level-left">
+          <span class="icon is-large level-item">
+              <ion-icon name="arrow-back-outline"></ion-icon>
+          </span>
         </button>
+        {{/if}}
         <!-- title -->
         <div class="level-item">
-        <h1 class="title is-size-2 is-size-4-mobile is-uppercase has-text-centered">G h o s t w r i t e r</h1>
+          <h1 class="title is-size-2 is-size-4-mobile is-uppercase has-text-centered">G h o s t w r i t e r</h1>
         </div>
         <!-- login icon => click for dropdown => who is logged in and a logout button -->
         <div class="dropdown is-hoverable px-4 is-right level-right">
         <div class="dropdown-trigger level-item">
             <button class="button is-large is-white is-rounded" aria-haspopup="true" aria-controls="dropdown-menu">
             <span class="icon is-large">
-                <img class="is-rounded" src="file:///C:/New-Class-Code/Project-2/Designing/icon%20-%20green.png" alt="login icon">
+                <img class="is-rounded" src="{{profileIcon}}" alt="profile icon">
             </span>
             </button>
         </div>
         <div class="dropdown-menu" id="dropdown-menu2" role="menu">
             <div class="dropdown-content">
             <div class="dropdown-item">
-                <p>username is logged in</p>
+                <p>{{name}} is logged in</p>
             </div>
             <hr class="dropdown-divider">
             <a href="#" class="dropdown-item">
@@ -73,13 +75,27 @@ Article view
       <div class="tabs is-centered is-hidden-mobile">
         <ul>
           <li class="is-active"><a>for you</a></li>
-          <li><a>business</a></li>
-          <li><a>entertainment</a></li>
-          <li><a>general</a></li>
-          <li><a>health</a></li>
-          <li><a>science</a></li>
-          <li><a>sports</a></li>
-          <li><a>technology</a></li>
+          <li id="tab-business">
+            <a>business</a>
+          </li>
+          <li id="tab-entertainment">
+            <a>entertainment</a>
+          </li>
+          <li id="tab-general">
+            <a>general</a>
+          </li>
+          <li id="tab-health">
+            <a>health</a>
+          </li>
+          <li id="tab-science">
+            <a>science</a>
+          </li>
+          <li id="tab-sports">
+            <a>sports</a>
+          </li>
+          <li id="tab-technology">
+            <a>technology</a>
+          </li>
         </ul>
       </div>
       <!-- category selection tabs (smaller than tablet) -->
@@ -93,28 +109,28 @@ Article view
         </div>
         <div class="dropdown-menu" id="dropdown-menu3" role="menu">
           <div class="dropdown-content">
-            <a href="#" class="dropdown-item">
+            <a href="#" class="dropdown-item" id="dropdown-for-you">
               for you
             </a>
-            <a href="#" class="dropdown-item">
+            <a href="#" class="dropdown-item" id="dropdown-business">
               business
             </a>
-            <a href="#" class="dropdown-item">
+            <a href="#" class="dropdown-item" id="dropdown-entertainment">
               entertainment
             </a>
-            <a href="#" class="dropdown-item">
+            <a href="#" class="dropdown-item" id="dropdown-general">
               general
             </a>
-            <a href="#" class="dropdown-item">
+            <a href="#" class="dropdown-item" id="dropdown-health">
               health
             </a>
-            <a href="#" class="dropdown-item">
+            <a href="#" class="dropdown-item" id="dropdown-science">
               science
             </a>
-            <a href="#" class="dropdown-item">
+            <a href="#" class="dropdown-item" id="dropdown-sports">
               sports
             </a>
-            <a href="#" class="dropdown-item">
+            <a href="#" class="dropdown-item" id="dropdown-technology">
               technology
             </a>
           </div>
@@ -136,23 +152,24 @@ Article view
         <div class="card-content">
           <div class="media">
             <div class="media-content">
-              <p class="title is-4">Seven AI Companies Agree to Safegards in US</p>
-              <p class="subtitle is-5">Arthur Conan Doyle</p>
+              <p class="title is-4">{{title}}</p>
+              <p class="subtitle is-5">{{author}}</p>
       </div>
     </div>
         <div class="content">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At vitae consectetur tempore reiciendis, dolorum maxime minima eum rem velit amet aspernatur. Architecto asperiores quod voluptates enim cum deleniti eum nobis?</p>
-            
+            <p>{{article}}</p>
+            {{#each tag as |articleTags|}}
             <div class="buttons">
-                <button class="button">technology</button>
+                <button class="button">{{tag}}</button>
             </div>
+            {{/each}}
         </div>
         </div>
     </div>
     {{/each}}
 
     <!-- pagination -->
-    <nav class="pagination is-centered container is-fluid" role="navigation" aria-label="pagination">
+    {{!-- <nav class="pagination is-centered container is-fluid" role="navigation" aria-label="pagination">
         <a class="pagination-previous">Previous</a>
         <a class="pagination-next">Next page</a>
         <ul class="pagination-list">
@@ -164,31 +181,9 @@ Article view
           <li><span class="pagination-ellipsis">&hellip;</span></li>
           <li><a class="pagination-link" aria-label="Goto page 86">86</a></li>
         </ul>
-    </nav>
+    </nav> --}}
 
     <!-- scripts -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
-
-<!-- display tag options and select -->
-
-<div class="">
-  {{#each articles as |article|}}
-  <div class="">
-    <h1>
-        {{headline}}
-    </h1>
-    <h3>
-        {{author}}
-    </h3>
-    <!-- author image -->
-    <p>
-        {{article}}
-    </p>
-    <p>
-        {{tags}}
-    </p>
-  </div>
-  {{/each}}
-</div>
