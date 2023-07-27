@@ -1,15 +1,23 @@
-function openTab(event, tabId) {
-    // Get all elements with the class tabcontent and hide them
-    tabcontent = document.getElementsByClassName('tabcontent');
-    for (i=0; i<tabcontent.lenght; i++) {
-        tabcontent[i].style.display = 'none';
-    }
-    // Get all elements with the class tablinks and remove the class is-active
-    tablinks = document.getElementsByClassName('tablinks');
-    for (i=0; i<tablinks.lenght; i++) {
-        tablinks[i].className = tablinks[i].className.replace('is-active', '')
-    }
-    // Show current tab and add is-active to that tab and show it's content
-    document.getElementById(tabId).style.display = 'block';
-    event.currentTarget.className += 'is-active';
-}
+
+// tabs
+const tabs = document.querySelectorAll('.tablinks');
+const tabContentBoxes = document.querySelectorAll('.tabcontent')
+
+tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+        tabs.forEach(item => item.classList.remove('is-active'))
+        tab.classList.add('is-active');
+
+        const target = tab.dataset.target;
+        tabContentBoxes.forEach(box => {
+            if (box.getAttribute('id') === target) {
+                box.classList.remove('is-hidden')
+            } else {
+                box.classList.add('is-hidden')
+            }
+        })
+    })
+})
+
+// pagination
+

@@ -51,34 +51,34 @@
     <!-- category selection tabs (tablet and bigger) -->
       <div class="tabs is-centered is-hidden-mobile">
         <ul>
-          <li class="tablinks is-active" onclick="openTab(event, 'tab-for-you')">
+          <li class="tablinks is-active" data-target="for-you">
             <a>for you</a>
             </li>
-          <li class="tablinks" onclick="openTab(event, 'tab-business')">
+          <li class="tablinks" data-target="business">
             <a>business</a>
           </li>
-          <li class="tablinks" onclick="openTab(event, 'tab-entertainment')">
+          <li class="tablinks" data-target="entertainment">
             <a>entertainment</a>
           </li>
-          <li class="tablinks" onclick="openTab(event, 'tab-general')">
+          <li class="tablinks" data-target="general">
             <a>general</a>
           </li>
-          <li class="tablinks" onclick="openTab(event, 'tab-health')">
+          <li class="tablinks" data-target="health">
             <a>health</a>
           </li>
-          <li class="tablinks" onclick="openTab(event, 'tab-science')">
+          <li class="tablinks" data-target="science">
             <a>science</a>
           </li>
-          <li class="tablinks" onclick="openTab(event, 'tab-sports')">
+          <li class="tablinks" data-target="sports">
             <a>sports</a>
           </li>
-          <li class="tablinks" onclick="openTab(event, 'tab-technology')">
+          <li class="tablinks" data-target="technology">
             <a>technology</a>
           </li>
         </ul>
       </div>
 
-            <!-- category selection tabs (smaller than tablet) -->
+      <!-- category selection tabs (smaller than tablet) -->
       <div class="dropdown is-hidden-tablet">
         <div class="dropdown-trigger">
           <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
@@ -89,28 +89,28 @@
         </div>
         <div class="dropdown-menu" id="dropdown-menu3" role="menu">
           <div class="dropdown-content">
-            <a href="#" class="dropdown-item" id="dropdown-for-you">
+            <a href="#" class="tablinks" data-target="for-you">
               for you
             </a>
-            <a href="#" class="dropdown-item" id="dropdown-business">
+            <a href="#" class="tablinks" data-target="business">
               business
             </a>
-            <a href="#" class="dropdown-item" id="dropdown-entertainment">
+            <a href="#" class="tablinks" data-target="entertainment">
               entertainment
             </a>
-            <a href="#" class="dropdown-item" id="dropdown-general">
+            <a href="#" class="tablinks" data-target="general">
               general
             </a>
-            <a href="#" class="dropdown-item" id="dropdown-health">
+            <a href="#" class="tablinks" data-target="health">
               health
             </a>
-            <a href="#" class="dropdown-item" id="dropdown-science">
+            <a href="#" class="tablinks" data-target="science">
               science
             </a>
-            <a href="#" class="dropdown-item" id="dropdown-sports">
+            <a href="#" class="tablinks" data-target="sports">
               sports
             </a>
-            <a href="#" class="dropdown-item" id="dropdown-technology">
+            <a href="#" class="tablinks" data-target="technology">
               technology
             </a>
           </div>
@@ -149,8 +149,8 @@
             </div>
             {{/each}}
       </div>
-      <div id="tab-business" class="tabcontent">
-                <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
+      <div id="tab-business" class="is-hidden tabcontent">
+            <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
             {{#each articles as |article|}}
             <div class="card is-horizontal container is-fluid"> 
                 <div class="card-image is-right is-small">
@@ -180,7 +180,69 @@
             </div>
             {{/each}}
       </div>
-      <div id="tab-entertainment" class="tabcontent">
+      <div id="tab-entertainment" class="is-hidden tabcontent">
+            <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
+            {{#each articles as |article|}}
+            <div class="card is-horizontal container is-fluid"> 
+                <div class="card-image is-right is-small">
+                  <figure class="image is-2by1">
+                    <img
+                      src="{{image}}"
+                      alt="news image"
+                    />
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-content">
+                      <p class="title is-4">{{title}}</p>
+                      <p class="subtitle is-5">{{author}}</p>
+              </div>
+            </div>
+                <div class="content">
+                    <p>{{article}}</p>
+                    {{#each tag as |articleTags|}}
+                    <div class="buttons">
+                        <button class="button">{{tag}}</button>
+                    </div>
+                    {{/each}}
+                </div>
+                </div>
+            </div>
+            {{/each}}
+      </div>
+      <div id="tab-general" class="is-hidden tabcontent">
+            <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
+            {{#each articles as |article|}}
+            <div class="card is-horizontal container is-fluid"> 
+                <div class="card-image is-right is-small">
+                  <figure class="image is-2by1">
+                    <img
+                      src="{{image}}"
+                      alt="news image"
+                    />
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-content">
+                      <p class="title is-4">{{title}}</p>
+                      <p class="subtitle is-5">{{author}}</p>
+              </div>
+            </div>
+                <div class="content">
+                    <p>{{article}}</p>
+                    {{#each tag as |articleTags|}}
+                    <div class="buttons">
+                        <button class="button">{{tag}}</button>
+                    </div>
+                    {{/each}}
+                </div>
+                </div>
+            </div>
+            {{/each}}
+      </div>
+      <div id="tab-health" class="is-hidden tabcontent">
                 <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
             {{#each articles as |article|}}
             <div class="card is-horizontal container is-fluid"> 
@@ -211,7 +273,7 @@
             </div>
             {{/each}}
       </div>
-      <div id="tab-general" class="tabcontent">
+      <div id="tab-science" class="is-hidden tabcontent">
                 <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
             {{#each articles as |article|}}
             <div class="card is-horizontal container is-fluid"> 
@@ -242,8 +304,8 @@
             </div>
             {{/each}}
       </div>
-      <div id="tab-health" class="tabcontent">
-                <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
+      <div id="tab-sports" class="is-hidden tabcontent">
+            <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
             {{#each articles as |article|}}
             <div class="card is-horizontal container is-fluid"> 
                 <div class="card-image is-right is-small">
@@ -273,70 +335,8 @@
             </div>
             {{/each}}
       </div>
-      <div id="tab-science" class="tabcontent">
-                <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
-            {{#each articles as |article|}}
-            <div class="card is-horizontal container is-fluid"> 
-                <div class="card-image is-right is-small">
-                  <figure class="image is-2by1">
-                    <img
-                      src="{{image}}"
-                      alt="news image"
-                    />
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <div class="media">
-                    <div class="media-content">
-                      <p class="title is-4">{{title}}</p>
-                      <p class="subtitle is-5">{{author}}</p>
-              </div>
-            </div>
-                <div class="content">
-                    <p>{{article}}</p>
-                    {{#each tag as |articleTags|}}
-                    <div class="buttons">
-                        <button class="button">{{tag}}</button>
-                    </div>
-                    {{/each}}
-                </div>
-                </div>
-            </div>
-            {{/each}}
-      </div>
-      <div id="tab-sports" class="tabcontent">
-                <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
-            {{#each articles as |article|}}
-            <div class="card is-horizontal container is-fluid"> 
-                <div class="card-image is-right is-small">
-                  <figure class="image is-2by1">
-                    <img
-                      src="{{image}}"
-                      alt="news image"
-                    />
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <div class="media">
-                    <div class="media-content">
-                      <p class="title is-4">{{title}}</p>
-                      <p class="subtitle is-5">{{author}}</p>
-              </div>
-            </div>
-                <div class="content">
-                    <p>{{article}}</p>
-                    {{#each tag as |articleTags|}}
-                    <div class="buttons">
-                        <button class="button">{{tag}}</button>
-                    </div>
-                    {{/each}}
-                </div>
-                </div>
-            </div>
-            {{/each}}
-      </div>
-      <div id="tab-technology" class="tabcontent">
-                <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
+      <div id="tab-technology" class="is-hidden tabcontent">
+            <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
             {{#each articles as |article|}}
             <div class="card is-horizontal container is-fluid"> 
                 <div class="card-image is-right is-small">
