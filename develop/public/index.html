@@ -11,48 +11,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400&display=swap" rel="stylesheet">
 </head>
 <body>
-  <section class="hero">
-    <div class="hero-body">
-      <h1 class="title is-size-2 is-uppercase has-text-centered">G h o s t w r i t e r</h1>
+  <section class="level py-5">
+    <div class="level-item">
+      <h1 class="title is-size-2 is-size-4-mobile is-uppercase has-text-centered">G h o s t w r i t e r</h1>
     </div>
-  </section>
     <!-- login icon => click for dropdown => who is logged in and a logout button -->
-    <div class="dropdown is-active">
-      <div class="dropdown-trigger">
+    <div class="dropdown is-hoverable px-4 is-right level-right">
+      <div class="dropdown-trigger level-item">
         <button class="button is-large is-white is-rounded" aria-haspopup="true" aria-controls="dropdown-menu">
-          <span class="icon">
-            <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" alt="login icon">
+          <span class="icon is-large">
+            <img class="is-rounded" src="file:///C:/New-Class-Code/Project-2/Designing/icon%20-%20green.png" alt="login icon">
           </span>
         </button>
       </div>
       <div class="dropdown-menu" id="dropdown-menu2" role="menu">
         <div class="dropdown-content">
           <div class="dropdown-item">
-            <p>You can insert <strong>any type of content</strong> within the dropdown menu.</p>
-          </div>
-          <hr class="dropdown-divider">
-          <div class="dropdown-item">
-            <p>You simply need to use a <code>&lt;div&gt;</code> instead.</p>
+            <p>username is logged in</p>
           </div>
           <hr class="dropdown-divider">
           <a href="#" class="dropdown-item">
-            This is a link
+            logout
           </a>
         </div>
       </div>
     </div>
+  </section>
+
+
 
     <!-- search bar -->
     <div class="field has-addons has-addons-centered container is-fluid">
         <p class="control">
             <a class="button">
-              categories
+              <ion-icon name="search-outline"></ion-icon>
             </a>
         </p>
         <div class="control is-expanded has-icon-left">
             <input class="input" type="text" placeholder="SEARCH GHOSTWRITER" aria-label="search">
         </div>
       </div>
+
     <!-- category selection tabs (tablet and bigger) -->
       <div class="tabs is-centered is-hidden-mobile">
         <ul>
@@ -71,7 +70,7 @@
         <div class="dropdown-trigger">
           <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
             <span>
-                <ion-icon class="icon is-medium" name="menu-outline"></ion-icon>
+                categories
             </span>
           </button>
         </div>
