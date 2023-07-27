@@ -1,10 +1,10 @@
 const sequelize = require('../config/connection');
 const User = require('../models/User');
 const Content = require('../models/Content');
-const Article = require('../models/Article');
+const SourceArticles = require('../models/SourceArticles');
 
 const userData = require('./userData.json');
-const articleData = require('./articleData.json');
+const sourceArticleData = require('./sourceArticleData.json');
 const contentData = require('./contentData.json');
 
 const seedDatabase = async () => {
@@ -12,7 +12,7 @@ const seedDatabase = async () => {
 
   await User.bulkCreate(userData);
   await Content.bulkCreate(contentData);
-  await Article.bulkCreate(articleData);
+  await SourceArticles.bulkCreate(sourceArticleData);
 
   process.exit(0);
 };
