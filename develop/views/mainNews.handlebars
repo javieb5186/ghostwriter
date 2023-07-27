@@ -123,13 +123,13 @@ Article view
 
 
     <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
-
+    {{#each articles as |article|}}
     <div class="card is-horizontal container is-fluid"> 
         <div class="card-image is-right is-small">
           <figure class="image is-2by1">
             <img
-              src="https://s3.amazonaws.com/www.explorersweb.com/wp-content/uploads/2022/07/09204059/IMG_1976-1.jpg"
-              alt="Placeholder image"
+              src="{{image}}"
+              alt="news image"
             />
           </figure>
         </div>
@@ -149,33 +149,7 @@ Article view
         </div>
         </div>
     </div>
-
-    <div class="card is-horizontal container is-fluid"> 
-        <div class="card-image is-right is-small">
-          <figure class="image is-2by1">
-            <img
-              src="https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,h_962,q_65,w_640/v1/clients/whitemountainsnh/_shravanphotos_Echo_Lake_FNSP_11887ebe-bd84-4384-9b4b-87f1c42a7cd0.jpg"
-              alt="Placeholder image"
-            />
-          </figure>
-        </div>
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p class="title is-4">Seven AI Companies Agree to Safegards in US</p>
-              <p class="subtitle is-5">Arthur Conan Doyle</p>
-      </div>
-    </div>
-        <div class="content">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At vitae consectetur tempore reiciendis, dolorum maxime minima eum rem velit amet aspernatur. Architecto asperiores quod voluptates enim cum deleniti eum nobis?</p>
-            
-            <div class="buttons">
-                <button class="button">technology</button>
-            </div>
-        </div>
-        </div>
-    </div>
-
+    {{/each}}
 
     <!-- pagination -->
     <nav class="pagination is-centered container is-fluid" role="navigation" aria-label="pagination">
