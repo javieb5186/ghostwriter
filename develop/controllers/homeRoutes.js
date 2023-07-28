@@ -37,14 +37,14 @@ router.get('/main-news', async (req, res) => {
   try {
     // in {} have the info to include / exclude information
     const userData = await User.findByPk(req.session.id, {
-      attributes: { exclude: ['password','email'] },
+      attributes: { exclude: ['password', 'email'] },
     });
-    if(!userData) {
-        res.status(404).json({message: 'No user with this id!'});
-        return;
+    if (!userData) {
+      res.status(404).json({ message: 'No user with this id!' });
+      return;
     }
-      const user = userData.get({ plain: true });
-      res.render('user', user);
+    const user = userData.get({ plain: true });
+    res.render('user', user);
     // serialize data
 
     // combine then serialize or combine after?

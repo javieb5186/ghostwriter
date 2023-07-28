@@ -4,7 +4,6 @@
 
 // search button => search results?
 
-
 // tabs
 const tabs = document.querySelectorAll('.tablinks');
 const tabContentBoxes = document.querySelectorAll('.tabcontent');
