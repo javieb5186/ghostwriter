@@ -33,26 +33,34 @@ router.get('/aboutyou', async (req, res) => {
   }
 });
 
-router.get('/main-news', async (req, res) => {
+router.get('/main-news/:id', async (req, res) => {
   try {
     // in {} have the info to include / exclude information
-    const userData = await User.findByPk(req.session.id, {
+    const userData = await User.findByPk(req.params.id, {
       attributes: { exclude: ['password', 'email'] },
     });
-    if (!userData) {
-      res.status(404).json({ message: 'No user with this id!' });
-      return;
-    }
+
     const user = userData.get({ plain: true });
-    res.render('user', user);
-    // serialize data
+    console.log(user)
+    
+
+    // res.render('main-news', user);
+    // Serialize data so the template can read it
+    // const projects = projectData.map((project) => project.get({ plain: true }));
+
+    // // Pass serialized data and session flag into template
+    // res.render('homepage', { 
+    //   projects, 
+    //   logged_in: req.session.logged_in 
+    // });
 
     // combine then serialize or combine after?
     // can pass multiple objects and serialize from each table
 
-    res.render('mainNews', {}); // {pass in everything from database}
+    res.render('mainNews', {user}); // {pass in everything from database}
   } catch (err) {
     res.status(500).json(err);
+    console.error(err)
   }
 });
 
