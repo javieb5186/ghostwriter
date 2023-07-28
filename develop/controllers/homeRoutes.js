@@ -48,6 +48,7 @@ router.get('/main-news', async (req, res) => {
     // serialize data
 
     // combine then serialize or combine after?
+    // can pass multiple objects and serialize from each table
 
     res.render('mainNews', {}); // {pass in everything from database}
   } catch (err) {

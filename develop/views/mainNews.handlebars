@@ -132,13 +132,14 @@
                 <div class="card-content">
                   <div class="media">
                     <div class="media-content">
-                      <p class="title is-4">{{title}}</p>
-                      <p class="subtitle is-5">{{author}}</p>
+                      <p class="title is-4">{{Title}}</p>
+                      <p class="subtitle is-5">{{Author}}</p>
+                      <p>{{Date}}</p>
               </div>
             </div>
                 <div class="content">
                     <p>{{BlogPost}}</p>
-                    {{#each tag as |articleTags|}}
+                    {{#each category}}
                     <div class="buttons">
                         <button class="button">{{category}}</button>
                     </div>
