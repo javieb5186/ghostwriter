@@ -20,6 +20,8 @@
     "express-handlebars": "^7.1.0",
     "express-session": "^1.17.3",
     "mysql2": "^3.5.2",
+    "newsapi": "^2.4.1",
+    "openai": "^3.3.0",
     "sequelize": "^6.32.1"
   },
   "devDependencies": {
