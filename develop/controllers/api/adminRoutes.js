@@ -9,7 +9,8 @@ const router = express.Router();
 // Route for refreshing raw source articles
 router.get('/fetch-news', async (req, res) => {
   try {
-    // Call the fetchNewsByCategories function from the newsRetriever module
+    // Call the fetchNewsByCategories function from the
+    // newsRetriever module inside the route handler
     const newsData = await newsRetriever.fetchNewsByCategories();
 
     // Store the newsData in a variable (if needed)
@@ -29,6 +30,7 @@ router.get('/fetch-news', async (req, res) => {
 router.get('/:category', async (req, res) => {
   const { category } = req.params;
   try {
+    // Call the searchByCategory function from the categorySearch module inside the route handler
     const results = await categorySearch.searchByCategory(category);
     res.json(results);
   } catch (error) {
@@ -50,7 +52,5 @@ router.post('/generate-article', async (req, res) => {
     res.status(500).json({ error: 'An error occurred while generating the article.' });
   }
 });
-
-// Route for storing the ChatGPT response to the content db
 
 module.exports = router;
