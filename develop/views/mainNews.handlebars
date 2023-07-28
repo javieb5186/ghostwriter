@@ -1,13 +1,12 @@
 <body>
     <section class="level pt-6 pb-4">
-        {{#if admin = true}}
+        <!-- currently just balancing out the page -->
         <!-- back button (to be activated with authorized users) -->
-        <button class="button is-large is-white is-rounded level-left">
-          <span class="icon is-large level-item">
+        <button class="button is-large is-invisible is-white is-rounded level-left">
+          {{!-- <span class="icon is-large level-item">
               <ion-icon name="arrow-back-outline"></ion-icon>
-          </span>
+          </span> --}}
         </button>
-        {{/if}}
         <!-- title -->
         <div class="level-item">
           <h1 class="title is-size-2 is-size-4-mobile is-uppercase has-text-centered">G h o s t w r i t e r</h1>
@@ -414,8 +413,8 @@
     </nav> --}}
 
     <!-- scripts -->
-    <script src="/develop/public/js/mainpage.js"></script>
-    <script src="/develop/public/js/logout.js"></script>
+    <script src="/js/mainpage.js"></script>
+    {{!-- <script src="/js/logout.js"></script> --}}
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
