@@ -1,5 +1,4 @@
 const SourceArticles = require('../../models/SourceArticles');
-const sourceArticleData = require('../../seeds/sourceArticleData.json');
 
 const newSourceEntries = async (data) => {
   try {
@@ -9,5 +8,5 @@ const newSourceEntries = async (data) => {
     console.error('Error adding new entry:', error);
   }
 };
-
-module.exports = newSourceEntries;
+              
+module.exports = storeNewsData;
