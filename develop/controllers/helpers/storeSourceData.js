@@ -30,11 +30,12 @@ async function storeNewsData(newsData) {
                 urlToImage: article.urlToImage,
               });
             } catch (error) {
+              console.log(category);
               console.error(`Error storing news article "${article.title}": ${error}`);
             }
-          })
+          }),
         );
-      })
+      }),
     );
   } catch (error) {
     console.error('Error storing news data:', error);

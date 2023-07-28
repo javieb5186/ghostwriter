@@ -1,15 +1,13 @@
-const { Model, DataTypes, json } = require('sequelize');
-const fs = require('fs');
+const { Model, DataTypes } = require('sequelize');
+// const fs = require('fs');
 const sequelize = require('../config/connection');
-
-
 
 class Content extends Model {}
 
 Content.init(
   {
 
-      article_id: {
+    article_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -56,8 +54,5 @@ Content.init(
     modelName: 'content',
   },
 );
-
-
-
 
 module.exports = Content;
