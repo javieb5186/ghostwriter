@@ -12,11 +12,11 @@ const SourceArticles = sequelize.define('SourceArticles', {
     allowNull: false,
   },
   description: {
-    type: DataTypes.TEXT,
+    type: DataTypes.STRING(500), // Maximum length of 500 characters
     allowNull: true,
   },
   urlToImage: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING(500), // Maximum length of 500 characters
     allowNull: true,
   },
 }, {

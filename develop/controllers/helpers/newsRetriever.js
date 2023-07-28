@@ -1,8 +1,9 @@
-const dotenv = require('dotenv');
+const path = require('path');
 const NewsAPI = require('newsapi');
+require('dotenv').config({ path: path.resolve(__dirname, '../../../.env') });
 
-dotenv.config();
 const newsapi = new NewsAPI(process.env.NEWS_API_KEY);
+const storeNewsData = require('./storeSourceData');
 
 const categories = ['science', 'entertainment', 'health', 'sports', 'technology'];
 
@@ -16,31 +17,29 @@ async function fetchNewsByCategories() {
         country: 'us',
       });
 
-      // Extracting and storing the required fields (including the category) for each article
-      return {
+      // Extracting and storing the required fields for each article
+      return response.articles.map((article) => ({
         category,
-        articles: response.articles.map((article) => ({
-          title: article.title,
-          description: article.description,
-          urlToImage: article.urlToImage,
-        })),
-      };
+        title: article.title,
+        description: article.description,
+        urlToImage: article.urlToImage,
+      }));
     } catch (error) {
       console.error(`Error fetching news for category "${category}":`, error.message);
-      return {
-        category,
-        error: error.message,
-      };
+      return [{ category, error: error.message }];
     }
   });
 
-  const newHeadlines = await Promise.all(newsPromises);
+  const newHeadlinesByCategory = await Promise.all(newsPromises);
+  const mergedArticles = newHeadlinesByCategory.flat();
+  console.log(mergedArticles);
 
-  return newHeadlines.reduce((acc, cur) => {
-    acc[cur.category] = cur.articles || { error: cur.error };
-    return acc;
-  }, {});
+  return mergedArticles;
 }
+
+const newPull = fetchNewsByCategories();
+console.log(newPull);
+storeNewsData(newPull);
 
 module.exports = {
   fetchNewsByCategories,
