@@ -3,8 +3,22 @@ const { runCompletion } = require('../helpers/generateArticle');
 const newsRetriever = require('../helpers/newsRetriever');
 const categorySearch = require('../helpers/categorySearch');
 const storeNewsData = require('../helpers/storeSourceData');
+const seedDatabase = require('../../seeds/seed');
+const { searchSourceArticlesByCat } = require('../helpers/sourceArticleCatSearch');
 
 const router = express.Router();
+
+// Route for seeding DB
+router.get('/seed-data', async (req, res) => {
+  try {
+    // Call the seedDatabase function to seed the data
+    await seedDatabase();
+    res.status(200).send('Database seeded successfully!');
+  } catch (err) {
+    console.error('Error seeding database:', err);
+    res.status(500).send('Internal Server Error');
+  }
+});
 
 // Route for refreshing raw source articles
 router.get('/fetch-news', async (req, res) => {
@@ -23,6 +37,19 @@ router.get('/fetch-news', async (req, res) => {
     res.json(storedData);
   } catch (error) {
     res.status(500).json({ error: 'Error fetching, storing, or saving news data.' });
+  }
+});
+
+// Route for querying SourceArticles Table by Category
+router.get('/articles/:category', async (req, res) => {
+  const { category } = req.params;
+  try {
+    // Call the searchSourceArticlesByCat function
+    const results = await searchSourceArticlesByCat(category); // Use the correct function name here
+    res.json(results);
+  } catch (error) {
+    console.error('Error while searching articles by category:', error);
+    res.status(500).json({ error: 'Error while searching articles by category' });
   }
 });
 
