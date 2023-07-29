@@ -34,7 +34,7 @@ router.get('/aboutyou', async (req, res) => {
   }
 });
 
-router.get('/main-news/:id', async (req, res) => {
+router.get('/main-news', async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.id, {
       attributes: { exclude: ['password', 'email'] },
