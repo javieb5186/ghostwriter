@@ -3,7 +3,6 @@ const NewsAPI = require('newsapi');
 require('dotenv').config({ path: path.resolve(__dirname, '../../../.env') });
 
 const newsapi = new NewsAPI(process.env.NEWS_API_KEY);
-const storeNewsData = require('./storeSourceData');
 
 const categories = ['science', 'entertainment', 'health', 'sports', 'technology'];
 
@@ -36,10 +35,6 @@ async function fetchNewsByCategories() {
 
   return mergedArticles;
 }
-
-const newPull = fetchNewsByCategories();
-console.log(newPull);
-storeNewsData(newPull);
 
 module.exports = {
   fetchNewsByCategories,

@@ -18,8 +18,6 @@ async function searchByCategory(category) {
   }
 }
 
-searchByCategory('science');
-
 module.exports = {
   searchByCategory,
 };

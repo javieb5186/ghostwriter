@@ -3,7 +3,7 @@ const express = require('express');
 // const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./develop/controllers');
-// const adminRoutes = require('./develop/controllers/api/adminRoutes');
+const adminRoutes = require('./develop/controllers/api/adminRoutes');
 
 const sequelize = require('./develop/config/connection');
 
@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '/develop/public')));
 
-// app.use('/api/admin', adminRoutes);
+app.use('/api/admin', adminRoutes);
 
 app.use(routes);
 
