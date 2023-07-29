@@ -1,4 +1,4 @@
-// const SourceArticles = require('../../models/SourceArticles');
+const SourceArticles = require('../../models/SourceArticles');
 
 const saveNewsAPIdata = async (data) => {
   try {

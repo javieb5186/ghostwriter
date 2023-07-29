@@ -44,19 +44,18 @@ router.get('/main-news/:id', async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    const content = articleContent.get({ plain: true })
-    console.log(user)
-    console.log(content)
+    const content = articleContent.get({ plain: true });
+    console.log(user);
+    console.log(content);
 
-    res.render('mainNews', { 
+    res.render('mainNews', {
       user,
       content,
-      logged_in: req.session.logged_in 
+      logged_in: req.session.logged_in,
     });
-
   } catch (err) {
     res.status(500).json(err);
-    console.error(err)
+    console.error(err);
   }
 });
 

@@ -1,16 +1,14 @@
 <body>
     <section class="level pt-6 pb-4">
-        <!-- currently just balancing out the page -->
-        <!-- back button (to be activated with authorized users) -->
+        <!-- inivisible button just balancing out the page -->
         <button class="button is-large is-invisible is-white is-rounded level-left">
-          {{!-- <span class="icon is-large level-item">
-              <ion-icon name="arrow-back-outline"></ion-icon>
-          </span> --}}
         </button>
+
         <!-- title -->
         <div class="level-item">
           <h1 class="title is-size-2 is-size-4-mobile is-uppercase has-text-centered">G h o s t w r i t e r</h1>
         </div>
+
         <!-- login icon => click for dropdown => who is logged in and a logout button -->
         <div class="dropdown is-hoverable px-4 is-right level-right">
         <div class="dropdown-trigger level-item">
@@ -36,7 +34,7 @@
     </section>
 
     <!-- search bar -->
-    <div class="field has-addons has-addons-centered container is-fluid">
+    {{!-- <div class="field has-addons has-addons-centered container is-fluid">
         <p class="control">
             <a class="button search-btn">
               <ion-icon name="search-outline"></ion-icon>
@@ -45,7 +43,8 @@
         <div class="control is-expanded has-icon-left">
             <input class="input" type="text" placeholder="SEARCH GHOSTWRITER" aria-label="search">
         </div>
-      </div>
+      </div> --}}
+    <!-- not sure mvp needs a search bar -->
 
     <!-- category selection tabs (tablet and bigger) -->
       <div class="tabs is-centered is-hidden-mobile">
@@ -78,7 +77,7 @@
       </div>
 
       <!-- category selection tabs (smaller than tablet) -->
-      <div class="dropdown is-hidden-tablet">
+      <div class="dropdown is-hoverable is-hidden-tablet">
         <div class="dropdown-trigger">
           <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
             <span>
@@ -150,6 +149,7 @@
       <div id="tab-business" class="is-hidden tabcontent">
             <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
             {{#each contents as |content|}}
+            {{#equal category business}}
             <div class="card is-horizontal container article is-fluid"> 
                 <div class="card-image is-right is-small">
                   <figure class="image is-2by1">
@@ -175,11 +175,13 @@
                 </div>
                 </div>
             </div>
+            {{/equal}}
             {{/each}}
       </div>
       <div id="tab-entertainment" class="is-hidden tabcontent">
             <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
             {{#each contents as |content|}}
+            {{#equal category entertainment}}
             <div class="card is-horizontal container article is-fluid"> 
                 <div class="card-image is-right is-small">
                   <figure class="image is-2by1">
@@ -205,11 +207,13 @@
                 </div>
                 </div>
             </div>
+            {{/equal}}
             {{/each}}
       </div>
       <div id="tab-general" class="is-hidden tabcontent">
             <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
             {{#each contents as |content|}}
+            {{#equal category general}}
             <div class="card is-horizontal container article is-fluid"> 
                 <div class="card-image is-right is-small">
                   <figure class="image is-2by1">
@@ -235,11 +239,13 @@
                 </div>
                 </div>
             </div>
+            {{/equal}}
             {{/each}}
       </div>
       <div id="tab-health" class="is-hidden tabcontent">
             <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
             {{#each contents as |content|}}
+            {{#equal category health}}
             <div class="card is-horizontal container article is-fluid"> 
                 <div class="card-image is-right is-small">
                   <figure class="image is-2by1">
@@ -265,11 +271,13 @@
                 </div>
                 </div>
             </div>
+            {{/equal}}
             {{/each}}
       </div>
       <div id="tab-science" class="is-hidden tabcontent">
             <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
             {{#each contents as |content|}}
+            {{#equal category science}}
             <div class="card is-horizontal container article is-fluid"> 
                 <div class="card-image is-right is-small">
                   <figure class="image is-2by1">
@@ -295,11 +303,13 @@
                 </div>
                 </div>
             </div>
+            {{/equal}}
             {{/each}}
       </div>
       <div id="tab-sports" class="is-hidden tabcontent">
             <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
             {{#each contents as |content|}}
+            {{#equal category sports}}
             <div class="card is-horizontal container article is-fluid"> 
                 <div class="card-image is-right is-small">
                   <figure class="image is-2by1">
@@ -325,11 +335,13 @@
                 </div>
                 </div>
             </div>
+            {{/equal}}
             {{/each}}
       </div>
       <div id="tab-technology" class="is-hidden tabcontent">
             <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
             {{#each contents as |content|}}
+            {{#equal category technology}}
             <div class="card is-horizontal container article is-fluid"> 
                 <div class="card-image is-right is-small">
                   <figure class="image is-2by1">
@@ -355,6 +367,7 @@
                 </div>
                 </div>
             </div>
+            {{/equal}}
             {{/each}}
       </div>
 
