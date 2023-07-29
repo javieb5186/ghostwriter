@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const Content = require('../models/Content');
 const User = require('../models/User');
 
 router.get('/', async (req, res) => {
@@ -35,29 +36,24 @@ router.get('/aboutyou', async (req, res) => {
 
 router.get('/main-news/:id', async (req, res) => {
   try {
-    // in {} have the info to include / exclude information
     const userData = await User.findByPk(req.params.id, {
       attributes: { exclude: ['password', 'email'] },
     });
+    const articleContent = await Content.findByPk(req.params.id, {
+      attributes: { exclude: ['BlogPost'] },
+    });
 
     const user = userData.get({ plain: true });
+    const content = articleContent.get({ plain: true })
     console.log(user)
-    
+    console.log(content)
 
-    // res.render('main-news', user);
-    // Serialize data so the template can read it
-    // const projects = projectData.map((project) => project.get({ plain: true }));
+    res.render('mainNews', { 
+      user,
+      content,
+      logged_in: req.session.logged_in 
+    });
 
-    // // Pass serialized data and session flag into template
-    // res.render('homepage', { 
-    //   projects, 
-    //   logged_in: req.session.logged_in 
-    // });
-
-    // combine then serialize or combine after?
-    // can pass multiple objects and serialize from each table
-
-    res.render('mainNews', {user}); // {pass in everything from database}
   } catch (err) {
     res.status(500).json(err);
     console.error(err)
