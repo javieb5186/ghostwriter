@@ -1,0 +1,77 @@
+<section class="hero">
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item px-6 pt-4 pb-0">
+            <!-- back button -->
+            <!-- works to go back to main page for normies and to go back to the edit page for admin -->
+            {{#if admin}}
+            <button class="button test-back-btn">
+                go back
+            </button>
+            {{else}}
+            <button class="button home-back-btn">
+                go back
+            </button>
+            {{/if}}
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- article title and author -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+    <!-- title -->
+    <p class="title is-size-3 is-size-5-mobile">
+      {{Title}}
+    </p>
+    <!-- author -->
+    <p class="subtitle is-size-4 is-size-6-mobile">
+      {{Author}}
+    </p>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- article -->
+<div class='column is-full'>
+    <div class='card equal-height'>
+      <div class="card-image has-text-centered column is-10 is-offset-1">
+        <figure classs="image">
+            <!-- article image -->
+            <img src="https://lp-cms-production.imgix.net/2020-11/shutterstockRF_124204390.jpg" alt=""/>
+        </figure>
+      </div>
+      <div class='card-content'>
+        <!-- article content -->
+        <p>
+            {{BlogPost}}
+            <br>
+            {{Date}}
+        </p>
+      </div>
+    </div>
+    
+</div>
+
+<!-- back and forward buttons -->
+<div class="columns is-mobile">
+    <div class="column is-4 is-offset-4">
+        <button class="button back-btn">previous article</button>
+        <button class="button next-btn">next article</button>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>GHOSTWRITER</strong> by <a href="https://github.com/javieb5186">Javier</a>, <a href="https://github.com/DanielFord11">Daniel</a>, <a href="https://github.com/markymark97">Mark</a>, & <a href="https://github.com/Sarah-Paterson">Sarah</a>. The source code is licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+      </p>
+    </div>
+</footer>
