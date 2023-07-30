@@ -1,0 +1,425 @@
+<body>
+    <section class="level pt-6 pb-4">
+        <!-- inivisible button just balancing out the page -->
+        <button class="button is-large is-invisible is-white is-rounded level-left">
+        </button>
+
+        <!-- title -->
+        <div class="level-item">
+          <h1 class="title is-size-2 is-size-4-mobile is-uppercase has-text-centered">G h o s t w r i t e r</h1>
+        </div>
+
+        <!-- login icon => click for dropdown => who is logged in and a logout button -->
+        <div class="dropdown is-hoverable px-4 is-right level-right">
+        <div class="dropdown-trigger level-item">
+            <button class="button is-large is-white is-rounded" aria-haspopup="true" aria-controls="dropdown-menu">
+            <span class="icon is-large">
+                <img class="is-rounded" src="{{profileIcon}}" alt="profile icon">
+            </span>
+            </button>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+            <div class="dropdown-content">
+            <div class="dropdown-item">
+                <p>{{name}} is logged in</p>
+            </div>
+            <hr class="dropdown-divider">
+            <a href="#" class="dropdown-item logout">
+                logout
+            </a>
+            </div>
+        </div>
+        </div>
+
+    </section>
+
+    <!-- search bar -->
+    {{!-- <div class="field has-addons has-addons-centered container is-fluid">
+        <p class="control">
+            <a class="button search-btn">
+              <ion-icon name="search-outline"></ion-icon>
+            </a>
+        </p>
+        <div class="control is-expanded has-icon-left">
+            <input class="input" type="text" placeholder="SEARCH GHOSTWRITER" aria-label="search">
+        </div>
+      </div> --}}
+    <!-- not sure mvp needs a search bar -->
+
+    <!-- category selection tabs (tablet and bigger) -->
+      <div class="tabs is-centered is-hidden-mobile">
+        <ul>
+          <li class="tablinks is-active" data-target="for-you">
+            <a>for you</a>
+            </li>
+          <li class="tablinks" data-target="business">
+            <a>business</a>
+          </li>
+          <li class="tablinks" data-target="entertainment">
+            <a>entertainment</a>
+          </li>
+          <li class="tablinks" data-target="general">
+            <a>general</a>
+          </li>
+          <li class="tablinks" data-target="health">
+            <a>health</a>
+          </li>
+          <li class="tablinks" data-target="science">
+            <a>science</a>
+          </li>
+          <li class="tablinks" data-target="sports">
+            <a>sports</a>
+          </li>
+          <li class="tablinks" data-target="technology">
+            <a>technology</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- category selection tabs (smaller than tablet) -->
+      <div class="dropdown is-hoverable is-hidden-tablet">
+        <div class="dropdown-trigger">
+          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
+            <span>
+                categories
+            </span>
+          </button>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+          <div class="dropdown-content">
+            <a href="#" class="tablinks" data-target="for-you">
+              for you
+            </a>
+            <a href="#" class="tablinks" data-target="business">
+              business
+            </a>
+            <a href="#" class="tablinks" data-target="entertainment">
+              entertainment
+            </a>
+            <a href="#" class="tablinks" data-target="general">
+              general
+            </a>
+            <a href="#" class="tablinks" data-target="health">
+              health
+            </a>
+            <a href="#" class="tablinks" data-target="science">
+              science
+            </a>
+            <a href="#" class="tablinks" data-target="sports">
+              sports
+            </a>
+            <a href="#" class="tablinks" data-target="technology">
+              technology
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- tab content -->
+      <div id="tab-for-you" class="tabcontent">
+        <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
+            {{#each contents as |content|}}
+            <div class="card is-horizontal container article is-fluid"> 
+                <div class="card-image is-right is-small">
+                  <figure class="image is-2by1">
+                    <img
+                      src="{{urlToImage}}"
+                      alt="news image"
+                    />
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-content">
+                      <p class="title is-4">{{Title}}</p>
+                      <p class="subtitle is-5">{{Author}}</p>
+                      <p>{{Date}}</p>
+              </div>
+            </div>
+                <div class="content">
+                    <p>{{Description}}</p>
+                    <span class="tag is-medium">
+                        {{category}}
+                    </span>
+                </div>
+                </div>
+            </div>
+            {{/each}}
+      </div>
+      <div id="tab-business" class="is-hidden tabcontent">
+            <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
+            {{#each contents as |content|}}
+            {{#equal category business}}
+            <div class="card is-horizontal container article is-fluid"> 
+                <div class="card-image is-right is-small">
+                  <figure class="image is-2by1">
+                    <img
+                      src="{{urlToImage}}"
+                      alt="news image"
+                    />
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-content">
+                      <p class="title is-4">{{Title}}</p>
+                      <p class="subtitle is-5">{{Author}}</p>
+                      <p>{{Date}}</p>
+              </div>
+            </div>
+                <div class="content">
+                    <p>{{Description}}</p>
+                    <span class="tag is-medium">
+                        {{category}}
+                    </span>
+                </div>
+                </div>
+            </div>
+            {{/equal}}
+            {{/each}}
+      </div>
+      <div id="tab-entertainment" class="is-hidden tabcontent">
+            <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
+            {{#each contents as |content|}}
+            {{#equal category entertainment}}
+            <div class="card is-horizontal container article is-fluid"> 
+                <div class="card-image is-right is-small">
+                  <figure class="image is-2by1">
+                    <img
+                      src="{{urlToImage}}"
+                      alt="news image"
+                    />
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-content">
+                      <p class="title is-4">{{Title}}</p>
+                      <p class="subtitle is-5">{{Author}}</p>
+                      <p>{{Date}}</p>
+              </div>
+            </div>
+                <div class="content">
+                    <p>{{Description}}</p>
+                    <span class="tag is-medium">
+                        {{category}}
+                    </span>
+                </div>
+                </div>
+            </div>
+            {{/equal}}
+            {{/each}}
+      </div>
+      <div id="tab-general" class="is-hidden tabcontent">
+            <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
+            {{#each contents as |content|}}
+            {{#equal category general}}
+            <div class="card is-horizontal container article is-fluid"> 
+                <div class="card-image is-right is-small">
+                  <figure class="image is-2by1">
+                    <img
+                      src="{{urlToImage}}"
+                      alt="news image"
+                    />
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-content">
+                      <p class="title is-4">{{Title}}</p>
+                      <p class="subtitle is-5">{{Author}}</p>
+                      <p>{{Date}}</p>
+              </div>
+            </div>
+                <div class="content">
+                    <p>{{Description}}</p>
+                    <span class="tag is-medium">
+                        {{category}}
+                    </span>
+                </div>
+                </div>
+            </div>
+            {{/equal}}
+            {{/each}}
+      </div>
+      <div id="tab-health" class="is-hidden tabcontent">
+            <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
+            {{#each contents as |content|}}
+            {{#equal category health}}
+            <div class="card is-horizontal container article is-fluid"> 
+                <div class="card-image is-right is-small">
+                  <figure class="image is-2by1">
+                    <img
+                      src="{{urlToImage}}"
+                      alt="news image"
+                    />
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-content">
+                      <p class="title is-4">{{Title}}</p>
+                      <p class="subtitle is-5">{{Author}}</p>
+                      <p>{{Date}}</p>
+              </div>
+            </div>
+                <div class="content">
+                    <p>{{Description}}</p>
+                    <span class="tag is-medium">
+                        {{category}}
+                    </span>
+                </div>
+                </div>
+            </div>
+            {{/equal}}
+            {{/each}}
+      </div>
+      <div id="tab-science" class="is-hidden tabcontent">
+            <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
+            {{#each contents as |content|}}
+            {{#equal category science}}
+            <div class="card is-horizontal container article is-fluid"> 
+                <div class="card-image is-right is-small">
+                  <figure class="image is-2by1">
+                    <img
+                      src="{{urlToImage}}"
+                      alt="news image"
+                    />
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-content">
+                      <p class="title is-4">{{Title}}</p>
+                      <p class="subtitle is-5">{{Author}}</p>
+                      <p>{{Date}}</p>
+              </div>
+            </div>
+                <div class="content">
+                    <p>{{Description}}</p>
+                    <span class="tag is-medium">
+                        {{category}}
+                    </span>
+                </div>
+                </div>
+            </div>
+            {{/equal}}
+            {{/each}}
+      </div>
+      <div id="tab-sports" class="is-hidden tabcontent">
+            <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
+            {{#each contents as |content|}}
+            {{#equal category sports}}
+            <div class="card is-horizontal container article is-fluid"> 
+                <div class="card-image is-right is-small">
+                  <figure class="image is-2by1">
+                    <img
+                      src="{{urlToImage}}"
+                      alt="news image"
+                    />
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-content">
+                      <p class="title is-4">{{Title}}</p>
+                      <p class="subtitle is-5">{{Author}}</p>
+                      <p>{{Date}}</p>
+              </div>
+            </div>
+                <div class="content">
+                    <p>{{Description}}</p>
+                    <span class="tag is-medium">
+                        {{category}}
+                    </span>
+                </div>
+                </div>
+            </div>
+            {{/equal}}
+            {{/each}}
+      </div>
+      <div id="tab-technology" class="is-hidden tabcontent">
+            <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
+            {{#each contents as |content|}}
+            {{#equal category technology}}
+            <div class="card is-horizontal container article is-fluid"> 
+                <div class="card-image is-right is-small">
+                  <figure class="image is-2by1">
+                    <img
+                      src="{{urlToImage}}"
+                      alt="news image"
+                    />
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-content">
+                      <p class="title is-4">{{Title}}</p>
+                      <p class="subtitle is-5">{{Author}}</p>
+                      <p>{{Date}}</p>
+              </div>
+            </div>
+                <div class="content">
+                    <p>{{Description}}</p>
+                    <span class="tag is-medium">
+                        {{category}}
+                    </span>
+                </div>
+                </div>
+            </div>
+            {{/equal}}
+            {{/each}}
+      </div>
+
+
+    <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
+    {{!-- {{#each articles as |article|}}
+    <div class="card is-horizontal container article is-fluid"> 
+        <div class="card-image is-right is-small">
+          <figure class="image is-2by1">
+            <img
+              src="{{image}}"
+              alt="news image"
+            />
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4">{{title}}</p>
+              <p class="subtitle is-5">{{author}}</p>
+      </div>
+    </div>
+        <div class="content">
+            <p>{{article}}</p>
+            {{#each tag as |articleTags|}}
+            <div class="buttons">
+                <button class="button">{{tag}}</button>
+            </div>
+            {{/each}}
+        </div>
+        </div>
+    </div>
+    {{/each}} --}}
+
+    <!-- pagination -->
+    {{!-- <nav class="pagination is-centered container is-fluid" role="navigation" aria-label="pagination">
+        <a class="pagination-previous">Previous</a>
+        <a class="pagination-next">Next page</a>
+        <ul class="pagination-list">
+          <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
+          <li><span class="pagination-ellipsis">&hellip;</span></li>
+          <li><a class="pagination-link" aria-label="Goto page 45">45</a></li>
+          <li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a></li>
+          <li><a class="pagination-link" aria-label="Goto page 47">47</a></li>
+          <li><span class="pagination-ellipsis">&hellip;</span></li>
+          <li><a class="pagination-link" aria-label="Goto page 86">86</a></li>
+        </ul>
+    </nav> --}}
+
+    <!-- scripts -->
+    <script src="/js/mainpage.js"></script>
+    {{!-- <script src="/js/logout.js"></script> --}}
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
