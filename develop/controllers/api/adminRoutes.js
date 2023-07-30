@@ -5,6 +5,7 @@ const categorySearch = require('../helpers/categorySearch');
 const storeNewsData = require('../helpers/storeSourceData');
 const seedDatabase = require('../../seeds/seed');
 const { searchSourceArticlesByCat } = require('../helpers/sourceArticleCatSearch');
+const findArticleById = require('../helpers/article_idSearch');
 
 const router = express.Router();
 
@@ -41,15 +42,14 @@ router.get('/fetch-news', async (req, res) => {
 });
 
 // Route for querying SourceArticles Table by Category
-router.get('/articles/:category', async (req, res) => {
+router.get('/category/:category', async (req, res) => {
   const { category } = req.params;
   try {
-    // Call the searchSourceArticlesByCat function
-    const results = await searchSourceArticlesByCat(category); // Use the correct function name here
+    // Call the searchByCategory function from the categorySearch module inside the route handler
+    const results = await searchSourceArticlesByCat.searchByCategory(category);
     res.json(results);
   } catch (error) {
-    console.error('Error while searching articles by category:', error);
-    res.status(500).json({ error: 'Error while searching articles by category' });
+    res.status(500).json({ error: 'Error while searching by category' });
   }
 });
 
@@ -77,6 +77,22 @@ router.post('/generate-article', async (req, res) => {
   } catch (error) {
     // Handle any errors that occurred during the article generation
     res.status(500).json({ error: 'An error occurred while generating the article.' });
+  }
+});
+
+// Route for /articles/:articleId
+router.get('/gptAricles/:articleId', async (req, res) => {
+  const { articleId } = req.params; // Use object destructuring here
+
+  try {
+    const article = await findArticleById(articleId);
+    if (article) {
+      res.json(article);
+    } else {
+      res.status(404).json({ message: 'Article not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: 'Internal server error' });
   }
 });
 
