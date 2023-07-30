@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const Content = require('../models/Content');
 const User = require('../models/User');
+const getPrefs = require('../utils/getPreferences');
 
 router.get('/', async (req, res) => {
   try {
@@ -56,6 +57,15 @@ router.get('/main-news', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
     console.error(err);
+  }
+});
+
+router.get('/preferences', async (req, res) => {
+  try {
+    const prefs = await getPrefs();
+    res.render('preferences', { prefs });
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 

@@ -31,7 +31,7 @@ async function createAccount(event) {
     });
 
     if (response.ok) {
-      alert('Account Created');
+      document.location.replace('/preferences');
     } else {
       alert('Internal Error');
     }

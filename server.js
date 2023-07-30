@@ -6,11 +6,13 @@ const cors = require('cors');
 const routes = require('./develop/controllers');
 const adminRoutes = require('./develop/controllers/api/adminRoutes');
 const sequelize = require('./develop/config/connection');
+const helpers = require('./develop/utils/helpers');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 const hbs = exphbs.create({
+  helpers,
   layoutsDir: 'develop/views/layouts',
 });
 
