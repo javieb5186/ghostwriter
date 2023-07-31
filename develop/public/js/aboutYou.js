@@ -3,21 +3,25 @@ const profileIcon = document.getElementById('profile-icon');
 async function createAccount(event) {
   event.preventDefault();
 
+  // Get the state of elements
   const profileIconSrc = profileIcon.src;
   const email = localStorage.getItem('e');
   const n = document.getElementById('name').value.trim();
   const password = document.getElementById('password').value.trim();
   const confirmPassword = document.getElementById('confirm-password').value.trim();
 
+  // Test the name
   const validName = /^\w{3,25}$/.test(n);
-  let samePassword;
 
+  // Doubles checks the password they have entered
+  let samePassword;
   if (password === confirmPassword) {
     samePassword = true;
   } else {
     samePassword = false;
   }
 
+  // If everything looks good, send the data to create the user. 
   if (validName && samePassword) {
     const response = await fetch('/api/users/signup', {
       method: 'POST',
@@ -40,12 +44,14 @@ async function createAccount(event) {
   }
 }
 
+// Changes profile icon to any profile icon selected
 function changeProfileIcon(event) {
   if (event.target.src) {
     profileIcon.src = event.target.src;
   }
 }
 
+// If email not saved, direct back to signup. Otherwise continue on. 
 if (localStorage.getItem('e') === null) {
   document.location.replace('/signup');
 } else {
