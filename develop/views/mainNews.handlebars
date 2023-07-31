@@ -114,8 +114,54 @@
           </div>
         </div>
       </div>
+
+      <div id="tab-for-you" class="tabcontent">
+        <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
+            {{#each contents}}
+            <div class="card is-horizontal container article is-fluid"> 
+                <div class="card-image is-right is-small">
+                  <figure href="{{urlToImage}}" target="_blank" rel="noopener noreferrer" class="image is-2by1">
+                    {{#if urlToImage}}
+                    <img
+                      src="{{urlToImage}}"
+                      alt="{{Title}}"
+                    />
+                    {{else}}
+                    <img
+                      src="/develop/public/images/no-image-icon.png"
+                      alt="no image"
+                    />
+                    {{/if}}
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-content">
+                      {{#if}}
+                      <a href="{{urlToArticle}}" target="_blank" rel="noopener noreferrer" class="title is-4">{{Title}}</a>
+                      {{else}}
+                      <p>{{Title}}</p>
+                      {{/if}}
+                      <p class="subtitle is-5">{{Author}}</p>
+                      <p>{{Date}}</p>
+              </div>
+            </div>
+                <div class="content">
+                    {{#if Description}}
+                    <p>{{Description}}</p>
+                    {{else}}
+                    <p>No description available.</p>
+                    {{/if}}
+                    <span class="tag is-medium">
+                        {{category}}
+                    </span>
+                </div>
+                </div>
+            </div>
+            {{/each}}
+      </div>
       
-      <!-- tab content -->
+      {{!-- <!-- tab content -->
       <div id="tab-for-you" class="tabcontent">
         <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
             {{#each contents as |content|}}
@@ -369,7 +415,7 @@
             </div>
             {{/equal}}
             {{/each}}
-      </div>
+      </div> --}}
 
 
     <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->

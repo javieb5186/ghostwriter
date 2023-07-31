@@ -86,6 +86,16 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch(error => console.error('Error:', error));
 });
 
+// Handle click event for article links
+document.addEventListener("click", (event) => {
+  const clickedLink = event.target;
+  if (clickedLink.classList.contains("article-link")) {
+    event.preventDefault();
+    const articleID = clickedLink.getAttribute("data-article-id");
+    window.location.href = `article.html?article_id=${articleID}`;
+  }
+});
+
 // pagination
 
 // // need to get from the different categories and the user selected categories
