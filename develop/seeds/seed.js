@@ -13,9 +13,6 @@ const seedDatabase = async () => {
   await User.bulkCreate(userData);
   await Content.bulkCreate(contentData);
   await SourceArticles.bulkCreate(sourceArticleData);
-
-  // process.exit(0);
 };
 
-// seedDatabase();
 module.exports = seedDatabase;

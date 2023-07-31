@@ -1,0 +1,69 @@
+<div class="container is-fluid mt-6">
+  <div class="columns">
+    <div class="column is-half is-offset-one-quarter has-text-centered">
+      <h1 class="title is-1">
+        What Piques your interest?
+      </h1>
+      <h3 class="subtitle is-3">
+        Please select at least one category to continue
+      </h3>
+    </div>
+  </div>
+  <div class="columns is-multiline is-variable is-8-desktop is-desktop"> {{!-- Container --}}
+    {{#each prefs}}
+    <div class="column is-4 card"> {{!-- First Card --}}
+      <figure class="image is-32x32">
+        <img src='' alt="" style="float: right;">
+      </figure>
+      <div class="columns">
+        <div class="column has-text-centered">
+          <h2 class="title is-2">
+            {{n}}
+          </h2>
+          <div class="columns has-text-centered">
+            <div class="column">
+              <figure class="image is-square">
+                <img src="{{printArr relImages 0}}" alt="Placeholder image">
+              </figure>
+            </div>
+            <div class="column">
+              <figure class="image is-square">
+                <img src="{{printArr relImages 1}}" alt="Placeholder image">
+              </figure>
+            </div>
+            <div class="column">
+              <figure class="image is-square">
+                <img src="{{printArr relImages 2}}" alt="Placeholder image">
+              </figure>
+            </div>
+          </div>
+          <div class="columns has-text-centered">
+            <div class="column">
+              <figure class="image is-square">
+                <img src="{{printArr relImages 3}}" alt="Placeholder image">
+              </figure>
+            </div>
+            <div class="column">
+              <figure class="image is-square">
+                <img src="{{printArr relImages 4}}" alt="Placeholder image">
+              </figure>
+            </div>
+            <div class="column">
+              <figure class="image is-square">
+                <img src="{{printArr relImages 5}}" alt="Placeholder image">
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  <div class="columns">
+    <div class="column">
+        <input id="submit" type="submit" class="button is-normal is-dark is-rounded" value="Let's Go!">
+    </div>
+  </div>
+</div>
+
+<script src="/js/preferences.js"></script>

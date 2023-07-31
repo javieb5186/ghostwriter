@@ -1,7 +1,10 @@
 const router = require('express').Router();
 const Content = require('../models/Content');
 const User = require('../models/User');
+const getPrefs = require('../utils/getPreferences');
+// const auth = require('../utils/auth');
 
+// The root route of our website
 router.get('/', async (req, res) => {
   try {
     res.render('welcome');
@@ -10,6 +13,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// The route to our login
 router.get('/login', async (req, res) => {
   try {
     res.render('login');
@@ -18,6 +22,7 @@ router.get('/login', async (req, res) => {
   }
 });
 
+// The route to our sign page
 router.get('/signup', async (req, res) => {
   try {
     res.render('signup');
@@ -26,6 +31,7 @@ router.get('/signup', async (req, res) => {
   }
 });
 
+// The route to our about page
 router.get('/aboutyou', async (req, res) => {
   try {
     res.render('aboutyou');
@@ -56,6 +62,16 @@ router.get('/main-news', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
     console.error(err);
+  }
+});
+
+// The route to our preferences page, getting all preferences store in the database
+router.get('/preferences', async (req, res) => {
+  try {
+    const prefs = await getPrefs();
+    res.render('preferences', { prefs });
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
