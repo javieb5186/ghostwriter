@@ -14,17 +14,17 @@
         <div class="dropdown-trigger level-item">
             <button class="button is-large is-white is-rounded" aria-haspopup="true" aria-controls="dropdown-menu">
             <span class="icon is-large">
-                <img class="is-rounded" src="{{profileIcon}}" alt="profile icon">
+                <img class="is-rounded" src="{{user.profileIcon}}" alt="profile icon">
             </span>
             </button>
         </div>
         <div class="dropdown-menu" id="dropdown-menu2" role="menu">
             <div class="dropdown-content">
             <div class="dropdown-item">
-                <p>{{name}} is logged in</p>
+                <p>{{user.name}} is logged in</p>
             </div>
             <hr class="dropdown-divider">
-            <a href="#" class="dropdown-item logout">
+            <a href="#" id="logout" class="dropdown-item">
                 logout
             </a>
             </div>
@@ -49,7 +49,7 @@
     <!-- category selection tabs (tablet and bigger) -->
       <div class="tabs is-centered is-hidden-mobile">
         <ul>
-          <li class="tablinks is-active" data-target="for-you">
+          <li class="tablinks" data-target="for-you">
             <a>for you</a>
             </li>
           <li class="tablinks" data-target="business">
@@ -77,7 +77,7 @@
       </div>
 
       <!-- category selection tabs (smaller than tablet) -->
-      <div class="dropdown is-hoverable is-hidden-tablet">
+      {{!-- <div class="dropdown is-hoverable is-hidden-tablet">
         <div class="dropdown-trigger">
           <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
             <span>
@@ -113,340 +113,39 @@
             </a>
           </div>
         </div>
-      </div>
-
-      <div id="tab-for-you" class="tabcontent">
-        <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
-            {{#each contents}}
-            <div class="card is-horizontal container article is-fluid"> 
-                <div class="card-image is-right is-small">
-                  <figure href="{{urlToImage}}" target="_blank" rel="noopener noreferrer" class="image is-2by1">
-                    {{#if urlToImage}}
-                    <img
-                      src="{{urlToImage}}"
-                      alt="{{Title}}"
-                    />
-                    {{else}}
-                    <img
-                      src="/develop/public/images/no-image-icon.png"
-                      alt="no image"
-                    />
-                    {{/if}}
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <div class="media">
-                    <div class="media-content">
-                      {{#if}}
-                      <a href="{{urlToArticle}}" target="_blank" rel="noopener noreferrer" class="title is-4">{{Title}}</a>
-                      {{else}}
-                      <p>{{Title}}</p>
-                      {{/if}}
-                      <p class="subtitle is-5">{{Author}}</p>
-                      <p>{{Date}}</p>
-              </div>
-            </div>
-                <div class="content">
-                    {{#if Description}}
-                    <p>{{Description}}</p>
-                    {{else}}
-                    <p>No description available.</p>
-                    {{/if}}
-                    <span class="tag is-medium">
-                        {{category}}
-                    </span>
-                </div>
-                </div>
-            </div>
-            {{/each}}
-      </div>
-      
-      {{!-- <!-- tab content -->
-      <div id="tab-for-you" class="tabcontent">
-        <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
-            {{#each contents as |content|}}
-            <div class="card is-horizontal container article is-fluid"> 
-                <div class="card-image is-right is-small">
-                  <figure class="image is-2by1">
-                    <img
-                      src="{{urlToImage}}"
-                      alt="news image"
-                    />
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <div class="media">
-                    <div class="media-content">
-                      <p class="title is-4">{{Title}}</p>
-                      <p class="subtitle is-5">{{Author}}</p>
-                      <p>{{Date}}</p>
-              </div>
-            </div>
-                <div class="content">
-                    <p>{{Description}}</p>
-                    <span class="tag is-medium">
-                        {{category}}
-                    </span>
-                </div>
-                </div>
-            </div>
-            {{/each}}
-      </div>
-      <div id="tab-business" class="is-hidden tabcontent">
-            <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
-            {{#each contents as |content|}}
-            {{#equal category business}}
-            <div class="card is-horizontal container article is-fluid"> 
-                <div class="card-image is-right is-small">
-                  <figure class="image is-2by1">
-                    <img
-                      src="{{urlToImage}}"
-                      alt="news image"
-                    />
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <div class="media">
-                    <div class="media-content">
-                      <p class="title is-4">{{Title}}</p>
-                      <p class="subtitle is-5">{{Author}}</p>
-                      <p>{{Date}}</p>
-              </div>
-            </div>
-                <div class="content">
-                    <p>{{Description}}</p>
-                    <span class="tag is-medium">
-                        {{category}}
-                    </span>
-                </div>
-                </div>
-            </div>
-            {{/equal}}
-            {{/each}}
-      </div>
-      <div id="tab-entertainment" class="is-hidden tabcontent">
-            <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
-            {{#each contents as |content|}}
-            {{#equal category entertainment}}
-            <div class="card is-horizontal container article is-fluid"> 
-                <div class="card-image is-right is-small">
-                  <figure class="image is-2by1">
-                    <img
-                      src="{{urlToImage}}"
-                      alt="news image"
-                    />
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <div class="media">
-                    <div class="media-content">
-                      <p class="title is-4">{{Title}}</p>
-                      <p class="subtitle is-5">{{Author}}</p>
-                      <p>{{Date}}</p>
-              </div>
-            </div>
-                <div class="content">
-                    <p>{{Description}}</p>
-                    <span class="tag is-medium">
-                        {{category}}
-                    </span>
-                </div>
-                </div>
-            </div>
-            {{/equal}}
-            {{/each}}
-      </div>
-      <div id="tab-general" class="is-hidden tabcontent">
-            <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
-            {{#each contents as |content|}}
-            {{#equal category general}}
-            <div class="card is-horizontal container article is-fluid"> 
-                <div class="card-image is-right is-small">
-                  <figure class="image is-2by1">
-                    <img
-                      src="{{urlToImage}}"
-                      alt="news image"
-                    />
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <div class="media">
-                    <div class="media-content">
-                      <p class="title is-4">{{Title}}</p>
-                      <p class="subtitle is-5">{{Author}}</p>
-                      <p>{{Date}}</p>
-              </div>
-            </div>
-                <div class="content">
-                    <p>{{Description}}</p>
-                    <span class="tag is-medium">
-                        {{category}}
-                    </span>
-                </div>
-                </div>
-            </div>
-            {{/equal}}
-            {{/each}}
-      </div>
-      <div id="tab-health" class="is-hidden tabcontent">
-            <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
-            {{#each contents as |content|}}
-            {{#equal category health}}
-            <div class="card is-horizontal container article is-fluid"> 
-                <div class="card-image is-right is-small">
-                  <figure class="image is-2by1">
-                    <img
-                      src="{{urlToImage}}"
-                      alt="news image"
-                    />
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <div class="media">
-                    <div class="media-content">
-                      <p class="title is-4">{{Title}}</p>
-                      <p class="subtitle is-5">{{Author}}</p>
-                      <p>{{Date}}</p>
-              </div>
-            </div>
-                <div class="content">
-                    <p>{{Description}}</p>
-                    <span class="tag is-medium">
-                        {{category}}
-                    </span>
-                </div>
-                </div>
-            </div>
-            {{/equal}}
-            {{/each}}
-      </div>
-      <div id="tab-science" class="is-hidden tabcontent">
-            <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
-            {{#each contents as |content|}}
-            {{#equal category science}}
-            <div class="card is-horizontal container article is-fluid"> 
-                <div class="card-image is-right is-small">
-                  <figure class="image is-2by1">
-                    <img
-                      src="{{urlToImage}}"
-                      alt="news image"
-                    />
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <div class="media">
-                    <div class="media-content">
-                      <p class="title is-4">{{Title}}</p>
-                      <p class="subtitle is-5">{{Author}}</p>
-                      <p>{{Date}}</p>
-              </div>
-            </div>
-                <div class="content">
-                    <p>{{Description}}</p>
-                    <span class="tag is-medium">
-                        {{category}}
-                    </span>
-                </div>
-                </div>
-            </div>
-            {{/equal}}
-            {{/each}}
-      </div>
-      <div id="tab-sports" class="is-hidden tabcontent">
-            <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
-            {{#each contents as |content|}}
-            {{#equal category sports}}
-            <div class="card is-horizontal container article is-fluid"> 
-                <div class="card-image is-right is-small">
-                  <figure class="image is-2by1">
-                    <img
-                      src="{{urlToImage}}"
-                      alt="news image"
-                    />
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <div class="media">
-                    <div class="media-content">
-                      <p class="title is-4">{{Title}}</p>
-                      <p class="subtitle is-5">{{Author}}</p>
-                      <p>{{Date}}</p>
-              </div>
-            </div>
-                <div class="content">
-                    <p>{{Description}}</p>
-                    <span class="tag is-medium">
-                        {{category}}
-                    </span>
-                </div>
-                </div>
-            </div>
-            {{/equal}}
-            {{/each}}
-      </div>
-      <div id="tab-technology" class="is-hidden tabcontent">
-            <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
-            {{#each contents as |content|}}
-            {{#equal category technology}}
-            <div class="card is-horizontal container article is-fluid"> 
-                <div class="card-image is-right is-small">
-                  <figure class="image is-2by1">
-                    <img
-                      src="{{urlToImage}}"
-                      alt="news image"
-                    />
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <div class="media">
-                    <div class="media-content">
-                      <p class="title is-4">{{Title}}</p>
-                      <p class="subtitle is-5">{{Author}}</p>
-                      <p>{{Date}}</p>
-              </div>
-            </div>
-                <div class="content">
-                    <p>{{Description}}</p>
-                    <span class="tag is-medium">
-                        {{category}}
-                    </span>
-                </div>
-                </div>
-            </div>
-            {{/equal}}
-            {{/each}}
       </div> --}}
-
-
-    <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
-    {{!-- {{#each articles as |article|}}
-    <div class="card is-horizontal container article is-fluid"> 
-        <div class="card-image is-right is-small">
-          <figure class="image is-2by1">
-            <img
-              src="{{image}}"
-              alt="news image"
-            />
-          </figure>
-        </div>
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p class="title is-4">{{title}}</p>
-              <p class="subtitle is-5">{{author}}</p>
-      </div>
-    </div>
-        <div class="content">
-            <p>{{article}}</p>
-            {{#each tag as |articleTags|}}
-            <div class="buttons">
-                <button class="button">{{tag}}</button>
+      
+      <!-- tab content -->
+      <div class="tabcontent">
+        <!-- cards with the  title, author, description, picture, and tag (dynamically added) -->
+        {{#each content as |contents|}}
+        <div id="{{article_id}}" class="card is-horizontal container article is-fluid"> 
+            <div class="card-image is-right is-small">
+              <figure class="image is-2by1">
+                <img
+                  src="{{urlToImage}}"
+                  alt="news image"
+                />
+              </figure>
             </div>
-            {{/each}}
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content">
+                  <p class="title is-4">{{Title}}</p>
+                  <p class="subtitle is-5">{{Author}}</p>
+                  <p>{{Date}}</p>
+                </div>
+              </div>
+              <div class="content">
+                <p>{{Description}}</p>
+                <span class="tag is-medium">
+                    {{category}}
+                </span>
+              </div>
+          </div>
         </div>
-        </div>
-    </div>
-    {{/each}} --}}
+      </div>
+      {{/each}}
 
     <!-- pagination -->
     {{!-- <nav class="pagination is-centered container is-fluid" role="navigation" aria-label="pagination">
@@ -474,6 +173,7 @@
 
     <!-- scripts -->
     <script src="/js/mainpage.js"></script>
+    <script src="/js/logout.js"></script>
     {{!-- <script src="/js/logout.js"></script> --}}
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

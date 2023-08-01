@@ -6,59 +6,48 @@
           <a class="navbar-item px-6 pt-4 pb-0">
             <!-- back button -->
             <!-- works to go back to main page for normies and to go back to the edit page for admin -->
-            {{#if admin}}
-            <button class="button test-back-btn">
+            <button id="back-btn" class="button">
                 go back
             </button>
-            {{else}}
-            <button class="button home-back-btn">
-                go back
-            </button>
-            {{/if}}
           </a>
         </div>
       </div>
     </nav>
   </div>
-
   <!-- article title and author -->
   <div class="hero-body">
     <div class="container has-text-centered">
     <!-- title -->
     <p class="title is-size-3 is-size-5-mobile">
-      {{Title}}
+      {{content.Title}}
     </p>
     <!-- author -->
     <p class="subtitle is-size-4 is-size-6-mobile">
-      {{Author}}
+      {{content.Author}}
     </p>
     </div>
   </div>
-
 </section>
-
-
 <!-- article -->
 <div class='column is-full'>
     <div class='card equal-height'>
       <div class="card-image has-text-centered column is-10 is-offset-1">
         <figure classs="image">
             <!-- article image -->
-            <img src="{{urlToImage}}" alt=""/>
+            <img src="{{content.urlToImage}}" alt=""/>
         </figure>
       </div>
       <div class='card-content'>
         <!-- article content -->
         <p>
-            {{BlogPost}}
+            {{content.BlogPost}}
             <br>
-            {{Date}}
+            {{content.Date}}
         </p>
       </div>
     </div>
     
 </div>
-
 <!-- back and forward buttons -->
 <div class="columns is-mobile">
     <div class="column is-4 is-offset-4">
@@ -66,7 +55,6 @@
         <button class="button next-btn">next article</button>
     </div>
 </div>
-
 <footer class="footer">
     <div class="content has-text-centered">
       <p>
@@ -75,6 +63,5 @@
       </p>
     </div>
 </footer>
-
 {{!-- scripts --}}
 <script src="/js/article.js"></script>

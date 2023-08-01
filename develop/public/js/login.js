@@ -14,7 +14,7 @@ async function signIn(event) {
     });
 
     if (response.ok) {
-      alert('Everything went okay');
+      document.location.replace('/main-news/foryou');
     } else {
       alert('Something unexpected happened');
     }
