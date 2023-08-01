@@ -21,7 +21,7 @@ async function createAccount(event) {
     samePassword = false;
   }
 
-  // If everything looks good, send the data to create the user. 
+  // If everything looks good, send the data to create the user.
   if (validName && samePassword) {
     const response = await fetch('/api/users/signup', {
       method: 'POST',
@@ -51,7 +51,7 @@ function changeProfileIcon(event) {
   }
 }
 
-// If email not saved, direct back to signup. Otherwise continue on. 
+// If email not saved, direct back to signup. Otherwise continue on.
 if (localStorage.getItem('e') === null) {
   document.location.replace('/signup');
 } else {
