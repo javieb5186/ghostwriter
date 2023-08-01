@@ -52,10 +52,33 @@ function fetchDataFromAPI(category) {
 
 // Function to render the data using Handlebars
 function renderData(data) {
-  const source = document.getElementById('article-template').innerHTML;
-  const template = Handlebars.compile(source);
-  const rendered = template({ articles: data });
-  document.querySelector('.articles').innerHTML = rendered;
+  console.log(data);
+  const parent = document.getElementById('articles'); 
+
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+
+  const { length } = data;
+
+  for (let x = 0; x < length; x += 1) {
+    const obj = data[x];
+    const div = document.createElement('div');
+    div.setAttribute('class', 'article');
+    const title = document.createElement('h2');
+    title.innerText = obj.title;
+    div.append(title);
+
+    const description = document.createElement('p');
+    description.innerText = obj.description;
+    div.append(description);
+
+    const image = document.createElement('img');
+    image.setAttribute('src', obj.urlToImage);
+    div.append(image);
+
+    parent.append(div);
+  }
 }
 
 // Function to handle tab click event
@@ -96,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Attach click event listener to the dynamic content container '.articles'
-  const articlesContainer = document.querySelector('.articles');
+  const articlesContainer = document.querySelector('#articles');
   articlesContainer.addEventListener('click', function (event) {
     // Check if the clicked element is an article
     if (event.target.classList.contains('article')) {
