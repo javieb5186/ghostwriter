@@ -1,5 +1,4 @@
 const { Configuration, OpenAIApi } = require('openai');
-const fs = require('fs');
 require('dotenv').config();
 
 const configuration = new Configuration({
@@ -11,7 +10,7 @@ const openai = new OpenAIApi(configuration);
 async function runCompletion(title, description, author) {
   const response = await openai.createCompletion({
     model: 'text-davinci-003',
-    prompt: `Can you rewrite this title <${title}> and this description <${description}> and write a blog post in the style of ${author}? And make up a blog post based on the title can description? Can you return it as a json with these fields; title, description, author, blogPost? Just a json response nothing else. an actual json file and no control characters`,
+    prompt: `Can you rewrite this title <${title}> and this description <${description}> and make up a blog post in the style of ${author}? Can you return it as a json with these fields; title, description, author, blogPost? Just the json response nothing else. Please make all special characters json compliant`,
     max_tokens: 2000,
   });
 
@@ -19,25 +18,27 @@ async function runCompletion(title, description, author) {
   console.log(post);
 
   try {
-    // const cleanText = post.replace(/[\x00-\x1F\x7F-\x9F]/g, '');
-    const jsonObject = JSON.parse(post); // put cleanText back here
+    // Extract the relevant information from the post using regular expressions
+    const titleMatch = post.match(/"title":\s*"(.*?)"/);
+    const descriptionMatch = post.match(/"description":\s*"(.*?)"/);
+    const authorMatch = post.match(/"author":\s*"(.*?)"/);
+    const blogPostMatch = post.match(/"blogPost":\s*"(.*?)"/);
+
+    // Construct the JSON object
+    const jsonObject = {
+      title: titleMatch ? titleMatch[1] : '',
+      description: descriptionMatch ? descriptionMatch[1] : '',
+      author: authorMatch ? authorMatch[1] : '',
+      blogPost: blogPostMatch ? blogPostMatch[1] : '',
+    };
+
     console.log(jsonObject);
 
-    // Write the jsonObject to the "generated_article.json" file
-    fs.writeFile('generated_article.json', JSON.stringify(jsonObject, null, 2), (err) => {
-      if (err) {
-        console.error('Error writing file:', err);
-      } else {
-        console.log('JSON object written to generated_article.json');
-      }
-    });
+    return jsonObject;
   } catch (error) {
     console.error('Error parsing JSON:', error);
+    return null;
   }
-
-  // Check the token count of the response
-  const tokenCount = response.data.usage.total_tokens;
-  console.log('Token count:', tokenCount);
 }
 
 module.exports = {

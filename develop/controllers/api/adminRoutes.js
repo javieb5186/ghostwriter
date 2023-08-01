@@ -4,8 +4,9 @@ const newsRetriever = require('../helpers/newsRetriever');
 const categorySearch = require('../helpers/categorySearch');
 const storeNewsData = require('../helpers/storeSourceData');
 const seedDatabase = require('../../seeds/seed');
-const { searchSourceArticlesByCat } = require('../helpers/sourceArticleCatSearch');
 const findArticleById = require('../helpers/article_idSearch');
+const articleUtils = require('../helpers/sourceArticleCatSearch');
+const { saveGPTdata } = require('../helpers/storeGPTresponse');
 
 const router = express.Router();
 
@@ -41,15 +42,20 @@ router.get('/fetch-news', async (req, res) => {
   }
 });
 
-// Route for querying SourceArticles Table by Category
-router.get('/category/:category', async (req, res) => {
-  const { category } = req.params;
+// Route to search articles SOURCE articles by category
+router.get('/search/:category', async (req, res) => {
   try {
-    // Call the searchByCategory function from the categorySearch module inside the route handler
-    const results = await searchSourceArticlesByCat.searchByCategory(category);
-    res.json(results);
+    const { category } = req.params;
+
+    // Call the searchSourceArticlesByCat function to get articles by category
+    const articles = await articleUtils.searchSourceArticlesByCat(category);
+
+    // Send the articles as a response
+    res.json(articles);
   } catch (error) {
-    res.status(500).json({ error: 'Error while searching by category' });
+    // Handle any errors that may occur during the request
+    console.error('Error while searching articles by category:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
@@ -65,15 +71,33 @@ router.get('/:category', async (req, res) => {
   }
 });
 
+// Route for saving GPT data
+router.post('/save-gpt-data', async (req, res) => {
+  const { data } = req.body;
+
+  try {
+    // Call the saveGPTdata function to save the GPT data
+    await saveGPTdata(data);
+    res.status(200).json({ message: 'GPT data saved successfully!' });
+  } catch (error) {
+    console.error('Error saving GPT data:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 // Route for Generating Chat GPT Article based on Title/Description/Author
 router.post('/generate-article', async (req, res) => {
   const { title, description, author } = req.body;
 
   try {
-    await runCompletion(title, description, author);
+    const jsonObject = await runCompletion(title, description, author);
 
-    // If you want to send a response back to the client, you can do it here
-    res.json({ message: 'Article generated successfully!' });
+    if (jsonObject) {
+      // Send the JSON response received from the runCompletion function
+      res.json(jsonObject);
+    } else {
+      res.status(500).json({ error: 'An error occurred while generating the article.' });
+    }
   } catch (error) {
     // Handle any errors that occurred during the article generation
     res.status(500).json({ error: 'An error occurred while generating the article.' });
@@ -82,10 +106,12 @@ router.post('/generate-article', async (req, res) => {
 
 // Route for /articles/:articleId
 router.get('/gptAricles/:articleId', async (req, res) => {
-  const { articleId } = req.params; // Use object destructuring here
+  const { articleId } = req.params;
+  const intArticleId = parseInt(articleId, 10); // Parse the articleId as an integer
+  console.log(intArticleId);
 
   try {
-    const article = await findArticleById(articleId);
+    const article = await findArticleById(intArticleId);
     if (article) {
       res.json(article);
     } else {
