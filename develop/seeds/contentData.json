@@ -7,7 +7,7 @@
        "Author":"Carl Sagan",
        "Date":"2023-07-23",
        "urlToImage":"https://scitechdaily.com/images/Lasers-Measuring-Rainforest.jpg",
-       "category":"Science"
+       "category":"science"
     },
     {
       "article_id":2,
@@ -17,7 +17,7 @@
       "Author":"Mary Shelley",
       "Date":"July 23, 2023",
       "urlToImage":"https://www.chicagotribune.com/resizer/MwZCXZZX2xaLWg0doml6UOMLHLI=/1200x630/filters:format(jpg):quality(70):focal(1701x1024:1711x1034)/cloudfront-us-east-1.images.arcpublishing.com/tronc/TBAQIUEMJJCZZE7ENIZ33N5SZY.JPG",
-      "category":"Health"
+      "category":"health"
    },
    {
       "article_id":3,
@@ -27,7 +27,7 @@
       "Author":"Dr. Seuss",
       "Date":"2023-07-23",
       "urlToImage":"https://cdn.abcotvs.com/dip/images/13238814_051223-wpvi-abcnews-mcdonalds-lawsuit-noon-vid.jpg?w=1600",
-      "category":"Business"
+      "category":"business"
    },
    {
       "article_id":4,
@@ -37,7 +37,7 @@
        "Author": "William Shakespear",
        "Date": "23rd July 2023",
        "urlToImage": "https://ktla.com/wp-content/uploads/sites/4/2023/07/AP22012863311588.jpg?w=1280",
-       "category": "Entertainment"
+       "category": "entertainment"
      },
    {
       "article_id":5,
@@ -47,7 +47,7 @@
       "Author":"Raoul Duke",
       "Date":"2023-07-23",
       "urlToImage":"https://sportshub.cbsistatic.com/i/r/2023/07/22/a9df3632-bc76-4555-9ffe-6e945865200f/thumbnail/1200x675/1446f240fbe26b6202c5f162f27d47f9/hard-knocks-jets-us.jpg",
-      "category":"Sports"
+      "category":"sports"
    },
    {
       "article_id":6,
@@ -57,7 +57,7 @@
       "Author": "H.P. Lovecraft",
       "Date":"2023-07-30",
       "urlToImage": "https://cdn.mos.cms.futurecdn.net/wsiRnghRHhJLQJkTKkJ8EN-1200-80.jpg",
-      "category":"Science"
+      "category":"science"
     },
     {
       "article_id":7,
@@ -67,7 +67,7 @@
       "Author": "Isaac Asimov",
       "Date":"2023-07-30",
       "urlToImage": "https://cdn.mos.cms.futurecdn.net/kDhPMjtj5CmdS6zKxV7SGC-1200-80.png",
-      "category":"Science"
+      "category":"science"
     },
     {
       "article_id":8,
@@ -77,7 +77,7 @@
       "Author": "Hunter S Thompson",
       "Date":"2023-07-30",
       "urlToImage": "https://static.clubs.nfl.com/image/private/t_editorial_landscape_12_desktop/patriots/zaqlwmqdl5us6snwmdmk",
-      "category":"Sports"
+      "category":"sports"
     },
     {
       "article_id":9,
@@ -87,7 +87,7 @@
       "Author": "David Halberstam",
       "Date":"2023-07-30",
       "urlToImage": "https://www.gannett-cdn.com/presto/2023/07/26/USAT/7e193190-ae28-4790-aec6-1449c49c9d7a-USATSI_19714250.jpg?auto=webp&crop=5471,3078,x0,y215&format=pjpg&width=1200",
-      "category":"Sports"
+      "category":"sports"
     }
     
    ]

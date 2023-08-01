@@ -31,7 +31,17 @@ async function updateUserPrefs() {
   }
   console.log(prefsArr);
 
-  // Start fetch
+  const response = await fetch('/api/users/update-prefs', {
+    method: 'POST',
+    body: JSON.stringify({ prefsArr }),
+    headers: { 'Content-Type': 'application/json' },
+  });
+
+  if (response.ok) {
+    document.location.replace('/main-news/foryou');
+  } else {
+    alert('An error occured');
+  }
 }
 
 document.getElementById('submit').addEventListener('click', updateUserPrefs);

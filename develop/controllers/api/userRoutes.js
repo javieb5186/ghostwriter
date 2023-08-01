@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const User = require('../../models/User');
+const auth = require('../../utils/auth');
 
 // A signup route the will allow the user to signup if the email doesn't already exists
 router.get('/signup/:email', async (req, res) => {
@@ -23,6 +24,7 @@ router.post('/login', async (req, res) => {
     if (validLogIn) {
       req.session.save(() => {
         req.session.loggedIn = true;
+        req.session.user_id = userData.id;
         res.status(200).json(userData);
       });
     } else {
@@ -46,6 +48,7 @@ router.post('/signup', async (req, res) => {
         profileIcon: req.body.profileIconSrc,
       });
       req.session.save(() => {
+        req.session.user_id = dbUserData.id;
         req.session.loggedIn = true;
         res.status(200).json(dbUserData);
       });
@@ -54,7 +57,19 @@ router.post('/signup', async (req, res) => {
     }
   } catch (err) {
     res.status(500).json(err);
-    console.log(err);
+  }
+});
+
+// Update prefs to user
+router.post('/update-prefs', auth, async (req, res) => {
+  try {
+    const userData = await User.findOne({ where: { id: req.session.user_id } });
+
+    userData.update({ preferences: req.body.prefsArr });
+
+    res.status(200).json('Updated preferences to user');
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
