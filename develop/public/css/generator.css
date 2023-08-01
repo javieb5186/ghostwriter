@@ -1,0 +1,499 @@
+@charset "utf-8";
+
+/******* Fonts Import Start **********/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+/********* Fonts Face CSS End **********/
+
+/******* Common Element CSS Start ******/
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+.clear {
+  clear: both;
+}
+img {
+  max-width: 100%;
+  border: 0px;
+}
+ul,
+ol {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+  transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+}
+a:focus,
+a:active,
+a:visited,
+a:hover {
+  text-decoration: none;
+  outline: none;
+}
+a:hover {
+  color: #e73700;
+}
+h2 {
+  margin-bottom: 48px;
+  padding-bottom: 16px;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+  position: relative;
+  text-transform: capitalize;
+}
+h3 {
+  margin: 0 0 10px;
+  font-size: 28px;
+  line-height: 36px;
+}
+button {
+  outline: none !important;
+}
+/******* Common Element CSS End *********/
+
+/* -------- title style ------- */
+.line-title {
+  position: relative;
+  width: 400px;
+}
+.line-title::before,
+.line-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  border-radius: 2px;
+}
+.line-title::before {
+  width: 100%;
+  background: #f2f2f2;
+}
+.line-title::after {
+  width: 32px;
+  background: #40cd97;
+}
+
+/******* Middle section CSS Start ******/
+/* -------- Landing page ------- */
+.game-section {
+  padding: 60px 50px;
+}
+.game-section .owl-stage {
+  margin: 15px 0;
+  display: flex;
+  display: -webkit-flex;
+}
+.game-section .item {
+  margin: 0 15px 60px;
+  width: 320px;
+  height: 400px;
+  display: flex;
+  display: -webkit-flex;
+  align-items: flex-end;
+  -webkit-align-items: flex-end;
+  background: #343434 no-repeat center center / cover;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+.game-section .item.active {
+  width: 500px;
+  box-shadow: 12px 40px 40px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 12px 40px 40px rgba(0, 0, 0, 0.25);
+  border-color: #40cd97;
+  border-width: 4px;
+  border-style:solid;
+
+}
+.game-section .item:after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+}
+.game-section .item-desc {
+  padding: 0 24px 12px;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transform: translateY(calc(100% - 54px));
+  -webkit-transform: translateY(calc(100% - 54px));
+  transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+}
+.game-section .item.active .item-desc {
+  transform: none;
+  -webkit-transform: none;
+}
+.game-section .item-desc p {
+  opacity: 0;
+  -webkit-transform: translateY(32px);
+  transform: translateY(32px);
+  transition: all 0.4s ease-in-out 0.2s;
+  -webkit-transition: all 0.4s ease-in-out 0.2s;
+}
+.game-section .item.active .item-desc p {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+.game-section .owl-theme.custom-carousel .owl-dots {
+  margin-top: -20px;
+  position: relative;
+  z-index: 5;
+  display: block !important;
+  visibility: visible !important;
+}
+
+/******** Middle section CSS End *******/
+
+/***** responsive css Start ******/
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  h2 {
+    margin-bottom: 32px;
+  }
+  h3 {
+    margin: 0 0 8px;
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  /* -------- Landing page ------- */
+  .game-section {
+    padding: 50px 30px;
+  }
+  .game-section .item {
+    margin: 0 12px 60px;
+    width: 260px;
+    height: 360px;
+  }
+  .game-section .item.active {
+    width: 400px;
+  }
+  .game-section .item-desc {
+    transform: translateY(calc(100% - 46px));
+    -webkit-transform: translateY(calc(100% - 46px));
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  h2 {
+    margin-bottom: 32px;
+  }
+  h3 {
+    margin: 0 0 8px;
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .line-title {
+    width: 330px;
+  }
+
+  /* -------- Landing page ------- */
+  .game-section {
+    padding: 50px 30px 40px;
+  }
+  .game-section .item {
+    margin: 0 12px 60px;
+    width: 240px;
+    height: 330px;
+  }
+  .game-section .item.active {
+    width: 360px;
+  }
+  .game-section .item-desc {
+    transform: translateY(calc(100% - 42px));
+    -webkit-transform: translateY(calc(100% - 42px));
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+  h2 {
+    margin-bottom: 20px;
+  }
+  h3 {
+    margin: 0 0 8px;
+    font-size: 19px;
+    line-height: 24px;
+  }
+  .line-title {
+    width: 250px;
+  }
+
+  /* -------- Landing page ------- */
+  .game-section {
+    padding: 30px 15px 20px;
+  }
+  .game-section .item {
+    margin: 0 10px 40px;
+    width: 200px;
+    height: 280px;
+  }
+  .game-section .item.active {
+    width: 270px;
+    box-shadow: 6px 10px 10px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 6px 10px 10px rgba(0, 0, 0, 0.25);
+  }
+  .game-section .item-desc {
+    padding: 0 14px 5px;
+    transform: translateY(calc(100% - 42px));
+    -webkit-transform: translateY(calc(100% - 42px));
+  }
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+#results-container {
+    max-width: 80%;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: 60vh;
+}
+
+/* Center h1 elements */
+h1 {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+/* Category tabs container */
+#category-tabs {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Category tab style */
+.tab {
+    padding: 10px 20px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    color: black;
+    border-bottom: 2px solid transparent; /* Add transparent border at the bottom */
+    margin: 0 5px;
+    transition: color 0.3s, border-color 0.3s; /* Add transition for smooth effect */
+}
+
+/* Hover style for category tabs */
+.tab:hover {
+    border-color: #40cd97; /* Only change the border color on hover */
+    color:#40cd97; /* Change text color when selected */
+}
+
+/* Selected style for category tabs */
+.tab.selected {
+    color: #40cd97; /* Change text color when selected */
+    border-color: #40cd97; /* Change the border color when selected */
+}
+
+/* Remove blue outline around buttons */
+button:focus {
+    outline: none;
+}
+
+.article {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.article:hover {
+    background-color: #ECECEC; /* Slight grey tint on hover */
+    opacity: 80%;
+    cursor: pointer;
+}
+
+.article.selected {
+    background-color: #EEEDED; /* Slightly darker tint for selected item */
+    border-color: #40cd97;
+    border-width: 4px;
+    border-style:solid;
+    color: #fff; /* Text color when article is selected */
+}
+
+.article h2 {
+    margin: 0;
+}
+
+.article p {
+    margin: 10px 0;
+}
+
+.article img {
+    max-width: 100%;
+    height: 250px;
+    display: block;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#preview-header {
+    color: lightgrey;
+    position: relative; /* Set position to relative */
+    top: 130px; /* Adjust the top position to your preference */
+    left: 190px; /* Adjust the left position to your preference */
+    padding: 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    max-width: 50%;
+  }
+  
+
+.article-preview {
+    height: 470px; /* Fixed height of 470px */
+    overflow-y: scroll; /* Enable vertical scrolling */
+    padding: 20px;
+    margin: 8rem auto 20px; /* Adding 4rem top margin, 20px right and left margin, and 20px bottom margin */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    max-width: 50%;
+}
+
+.article-title {
+    font-size: 24px;
+    font-weight: bold;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.article-description {
+    font-size: 16px;
+    margin-top: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.article-author {
+    font-size: 14px;
+    margin-top: 5px;
+    font-style: italic;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.article-image {
+    max-width: 100%;
+    height: 400px;
+    margin-top: 10px;
+    padding-left: 10%;
+}
+
+.article-blog-post {
+    margin-top: 10px;
+    padding-left: 10%;
+    padding-right: 12%;
+}
+
+.article-date,
+.article-category {
+    font-size: 14px;
+    margin-top: 5px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+
+.btn-container {
+    text-align: center; /* Center the button on the x-axis */
+    margin-top: 4rem; /* Move the button down by 4rem */
+}
+  
+.btn {
+    background: transparent;
+    width: 200px;
+    position: relative;
+    padding: 15px;
+    color: #1ECD97;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transition: all 500ms cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    border-radius: 4px;
+    font-weight: 600;
+    overflow: hidden;
+    border: 2px solid #1ECD97;
+    text-decoration: none;
+}
+
+.btn-progress {
+    width: 500px;
+    color: transparent;
+}
+
+.btn-fill:after {
+    content: '';
+    background: #1ECD97;
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: 0;
+    display: block;
+    animation: fill 3.2s linear forwards;
+}
+
+.btn-complete {
+    padding: 10px;
+    width: 50px;
+    color: #fff;
+    pointer-events: none;
+}
+
+.btn-complete:after {
+    font-family: FontAwesome;
+    content: "\f00c";
+    color: #fff;
+    height: 100%;
+    padding-left: 3px;
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1ECD97;
+}
+
+/* Animation */
+@keyframes fill {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}

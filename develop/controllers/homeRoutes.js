@@ -118,4 +118,12 @@ router.get('/preferences', async (req, res) => {
   }
 });
 
+router.get('/generate-article', async (req, res) => {
+  try {
+    res.render('generator');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
