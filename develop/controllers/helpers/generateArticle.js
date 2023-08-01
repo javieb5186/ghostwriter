@@ -20,7 +20,7 @@ async function runCompletion(title, description, author) {
 
     // Remove non-printable/control characters
     const cleanText = post.replace(/[\x00-\x1F\x7F-\x9F]/g, '');
-    
+
     // Extract the JSON object from the `cleanText` using regular expressions
     const jsonObjectString = cleanText.match(/{[^]*}/s)[0];
     const jsonObject = JSON.parse(jsonObjectString);
