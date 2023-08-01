@@ -7,12 +7,12 @@ Content.init(
   {
 
     article_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.BIGINT,
       allowNull: false,
       primaryKey: true,
     },
     Title: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(500),
       allowNull: false,
 
     },
@@ -37,7 +37,7 @@ Content.init(
       allowNull: false,
     },
     urlToImage: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(500),
       allowNull: false,
     },
     category: {
