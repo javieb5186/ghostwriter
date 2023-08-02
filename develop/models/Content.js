@@ -7,12 +7,12 @@ Content.init(
   {
 
     article_id: {
-      type: DataTypes.BIGINT,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
     },
     Title: {
-      type: DataTypes.STRING(500),
+      type: DataTypes.STRING,
       allowNull: false,
 
     },
