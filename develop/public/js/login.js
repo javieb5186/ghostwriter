@@ -23,4 +23,5 @@ async function signIn(event) {
   }
 }
 
+console.log(document.location.origin);
 document.getElementById('submit').addEventListener('click', signIn);
