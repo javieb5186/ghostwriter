@@ -20,7 +20,8 @@ async function updateMainPage(event) {
   if (response.ok) {
     document.location.replace(`/main-news/${categoryName}`);
   } else {
-    alert('Internal Error');
+    // alert('Internal Error');
+    errorMessage.classList.remove('is-hidden');
   }
 }
 
@@ -36,4 +37,11 @@ cards.forEach((card) => {
     localStorage.setItem('previousUrl', document.location.href);
     document.location.replace(`/article/${id}`);
   });
+});
+
+const deleteBtn = document.getElementById('delete-btn');
+const errorMessage = document.getElementById('errorMessage')
+
+deleteBtn.addEventListener('click', () => {
+  errorMessage.classList.add('is-hidden');
 });

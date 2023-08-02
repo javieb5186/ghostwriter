@@ -59,6 +59,16 @@
     </div>
     {{/each}}
   </div>
+  {{!-- error message - invalid input --}}
+  <article class="message is-hidden" id="errorMessage">
+    <div class="message-header">
+      <p>Oops!</p>
+      <button class="delete" id="delete-btn" aria-label="delete"></button>
+    </div>
+      <div class="message-body">
+        Something went wrong. Please try again.
+      </div>
+  </article>
   <div class="columns">
     <div class="column is-2 is-offset-5 pb-5">
         <input id="submit" type="submit" class="button is-normal is-uppercase" value="let's go!">

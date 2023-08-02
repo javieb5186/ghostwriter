@@ -27,7 +27,6 @@
             <a href="#" id="logout" class="dropdown-item">
                 logout
             </a>
-            </div>
         </div>
         </div>
 
@@ -161,6 +160,29 @@
           <li><a class="pagination-link" aria-label="Goto page 86">86</a></li>
         </ul>
     </nav> --}}
+
+  
+   {{!-- error message - invalid input --}}
+   <article class="message is-hidden" id="errorMessage">
+     <div class="message-header">
+       <p>Oops!</p>
+      <button class="delete" id="delete-btn" aria-label="delete"></button>
+       </div>
+       <div class="message-body">
+        Something went wrong. Please reload and try again.
+      </div>
+    </article>
+
+     {{!-- error message - logout error --}}
+   <article class="message is-hidden" id="errorMessage-logout">
+     <div class="message-header">
+       <p>Oops!</p>
+      <button class="delete" id="delete-btn-2" aria-label="delete"></button>
+       </div>
+       <div class="message-body">
+        Something went wrong. Please reload and try again.
+      </div>
+    </article>
 
   <footer class="footer">
     <div class="content has-text-centered">

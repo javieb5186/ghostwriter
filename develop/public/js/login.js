@@ -16,11 +16,20 @@ async function signIn(event) {
     if (response.ok) {
       document.location.replace('/main-news/foryou');
     } else {
-      alert('Something unexpected happened');
+      // alert('Something unexpected happened');
+      errorMessage.classList.remove('is-hidden');
     }
   } else {
-    alert('Invalid input');
+    // alert('Invalid input');
+    errorMessage.classList.remove('is-hidden');
   }
 }
 
 document.getElementById('submit').addEventListener('click', signIn);
+
+const deleteBtn = document.getElementById('delete-btn');
+const errorMessage = document.getElementById('errorMessage')
+
+deleteBtn.addEventListener('click', () => {
+  errorMessage.classList.add('is-hidden');
+});

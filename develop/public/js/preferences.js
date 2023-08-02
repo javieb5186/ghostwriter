@@ -40,8 +40,16 @@ async function updateUserPrefs() {
   if (response.ok) {
     document.location.replace('/main-news/foryou');
   } else {
-    alert('An error occured');
+    // alert('An error occured');
+    errorMessage.classList.remove('is-hidden');
   }
 }
 
 document.getElementById('submit').addEventListener('click', updateUserPrefs);
+
+const deleteBtn = document.getElementById('delete-btn');
+const errorMessage = document.getElementById('errorMessage')
+
+deleteBtn.addEventListener('click', () => {
+  errorMessage.classList.add('is-hidden');
+});

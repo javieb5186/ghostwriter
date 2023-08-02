@@ -8,7 +8,15 @@ const logout = async () => {
     document.location.replace('/');
   } else {
     alert(response.statusText);
+    errorMessageLogout.classList.remove('is-hidden');
   }
 };
 
 document.querySelector('#logout').addEventListener('click', logout);
+
+const deleteBtn2 = document.getElementById('delete-btn-2');
+const errorMessageLogout = document.getElementById('errorMessage-logout');
+
+deleteBtn2.addEventListener('click', () => {
+  errorMessageLogout.classList.add('is-hidden');
+});

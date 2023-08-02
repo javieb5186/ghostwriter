@@ -17,6 +17,17 @@
           <input id="password" class="input" type="password" placeholder="Your Password">
         </div>
       </div>
+      {{!-- error message - incorrect email / password --}}
+      <article class="message is-hidden" id="errorMessage">
+        <div class="message-header">
+          <p>Oops!</p>
+          <button class="delete" id="delete-btn" aria-label="delete"></button>
+        </div>
+          <div class="message-body">
+            Your email or password is incorrect. Please try agian.
+          </div>
+      </article>
+      
       <input id="submit" type="submit" class="button is-normal" value="Log In">
       <br>
       <p class="has-text-grey-dark pt-2">Or if you're new, <a onclick="location.replace('/signup')">sign up</a>!</p>
