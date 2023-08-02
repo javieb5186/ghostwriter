@@ -40,7 +40,7 @@ console.log(formattedDate);
 
 // Function to make the API call and fetch data
 function fetchDataFromAPI(category) {
-  const url = `http://localhost:3001/api/admin/search/${category}`;
+  const url = `${document.location.origin}/api/admin/search/${category}`;
   return fetch(url)
     .then(response => response.json())
     .then(data => data)
@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 async function generateArticle() {
-  const url = 'http://localhost:3001/api/admin/generate-article';
+  const url = `${document.location.origin}/api/admin/generate-article`;
 
   // Assuming sourceArticleJSON and author are global variables
   const { title, description } = sourceArticleJSON;
@@ -279,7 +279,7 @@ function saveGPTData() {
   console.log(postData);
 
   // Replace 'your-api-url-here' with the actual URL where you want to send the POST request
-  const apiUrl = 'http://localhost:3001/api/admin/save-gpt-data';
+  const apiUrl = `${document.location.origin}/api/admin/save-gpt-data`;
 
   // Send the POST request
   fetch(apiUrl, {
