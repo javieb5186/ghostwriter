@@ -29,19 +29,20 @@
   </div>
 </section>
 <!-- article -->
-<div class='column is-full'>
+<div class='columns is-full'>
     <div class='card equal-height'>
-      <div class="card-image has-text-centered column is-10 is-offset-1">
-        <figure classs="image">
+      <div class="card-image has-text-centered column is-6 is-offset-3">
+        <figure class="image">
             <!-- article image -->
             <img src="{{content.urlToImage}}" alt=""/>
         </figure>
       </div>
-      <div class='card-content'>
+      <div class='card-content column is-10 is-offset-1'>
         <!-- article content -->
         <p>
-            {{content.BlogPost}}
+            <strong class="is-invisible">space</strong>{{content.BlogPost}}
             <br>
+            <hr>
             {{content.Date}}
         </p>
       </div>
@@ -49,12 +50,12 @@
     
 </div>
 <!-- back and forward buttons -->
-<div class="columns is-mobile">
+{{!-- <div class="columns is-mobile">
     <div class="column is-4 is-offset-4">
         <button class="button back-btn">previous article</button>
         <button class="button next-btn">next article</button>
     </div>
-</div>
+</div> --}}
 <footer class="footer">
     <div class="content has-text-centered">
       <p>
