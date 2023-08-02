@@ -1,38 +1,33 @@
-// Initialize selectedCategory as 'science'
-let selectedCategory = 'science';
-
-const sourceArticleJSON = {
-  category: 'science',
-  title: 'Moon gear: China building lander, rover and spacesuit for lunar missions (video) - Space.com',
-  description: 'The country wants to put boots on the moon before 2030.',
-  urlToImage: 'https://cdn.mos.cms.futurecdn.net/aCFHsm36U9owDGYpqTFuN5-1200-80.jpeg',
-};
-
-const author = 'Carl Sagan';
-
-const generatedArticleData = {
-  article_id: 4,
-  title: 'A Tumultuous Encounter at O.C. Fair: The Ballad of MGK and Megan Fox',
-  description: 'A scene of tumult and strife unfolded at the Orange County Fair as rapper Machine Gun Kelly, together with his betrothed, the fair Megan Fox, their loyal protector, and a purported assailant, engaged in a fray that found its way into the lens of the captured moving pictures on Thursday. The fracas took place in the vicinity of an amusement park ride, adding to the commotion that echoed through the fairground.',
-  blogPost: `Lo! As the sun dipped 'neath the horizon, casting its warm glow upon the merry revelers who sought delight in the Orange County Fair, a tale of tumult and disorder began to unfurl. The protagonists of our narrative, the famed rapper Machine Gun Kelly and the fair Megan Fox, known for her allure and beauty, found themselves entangled in a curious altercation.\n\nIn the company of their loyal sentinel, the valiant bodyguard, the pair wandered amidst the fair's mirth and gaiety, when, lo and behold, a miscreant, described as an attacker, did approach them with malevolence in his heart. A dispute, fierce and passionate, ensued, with the fair Megan Fox standing by her beloved, and the bodyguard ever-vigilant to protect those in his charge.\n\nUnbeknownst to the brawlers, the eyes of the modern age were upon them, for a device that traps moving images did capture the strife, preserving it for posterity. The scuffle, like a tempest that threatens to topple the grandest of oaks, unfolded near an amusement park ride, where merriment and excitement usually reside.\n\nThe echoes of the encounter resounded through the fairground, drawing both awe and consternation from those who bore witness. The news spread like wildfire, reaching the ears of people near and far, sparking discussions and debates among both commoners and gentry.\n\nYet, as with all tales of tumult and woe, there comes a moment of reprieve. As the fair's lights flickered, and the moon rose to take its place in the starry firmament, a semblance of calm returned. The protagonists, MGK and Megan Fox, withdrew from the fray, the bodyguard standing resolute, and the alleged attacker, whose motives may forever remain shrouded in mystery, vanished into the night.\n\nWhat prompted this clash? Whence came the hostility that beset the fair's merrymakers? Alas, dear readers, many questions persist, and answers may be elusive. For now, we are left with the moving pictures that shall etch this event into the annals of the present age.\n\nThus, let us reflect upon this tale of strife, and remember that even amidst the grandest of celebrations, discord may find its way. As the sun rises once more, and the fair resumes its course, we shall carry the memory of this tumultuous encounter, wondering what further twists and turns fate has in store for MGK, Megan Fox, and their loyal bodyguard in the tapestry of life.`, // The long blog post content goes here
-  author: 'William Shakespeare',
-  date: '23rd July 2023',
-  urlToImage: 'https://ktla.com/wp-content/uploads/sites/4/2023/07/AP22012863311588.jpg?w=1280',
-  category: 'Entertainment',
-};
-
-const publishJSON = {
-  data: {
-    article_id: 12,
-    title: 'Sample Title',
-    description: 'Sample description of the article.',
-    blogPost: 'The content of the blog post goes here.',
-    author: 'Daniel Ford',
-    date: '2023-07-31',
-    urlToImage: 'https://example.com/sample-image.jpg',
-    category: 'Science',
-  },
-};
+let selectedCategory = 'science'; // Initialize selectedCategory as 'science'
+let sourceArticleJSON = {
+    "category": "science",
+    "title": "Moon gear: China building lander, rover and spacesuit for lunar missions (video) - Space.com",
+    "description": "The country wants to put boots on the moon before 2030.",
+    "urlToImage": "https://cdn.mos.cms.futurecdn.net/aCFHsm36U9owDGYpqTFuN5-1200-80.jpeg"
+  }
+let author = "Carl Sagan";
+let generatedArticleData = {
+    "article_id": 4,
+    "title": "A Tumultuous Encounter at O.C. Fair: The Ballad of MGK and Megan Fox",
+    "description": "'A scene of tumult and strife unfolded at the Orange County Fair as rapper Machine Gun Kelly, together with his betrothed, the fair Megan Fox, their loyal protector, and a purported assailant, engaged in a fray that found its way into the lens of the captured moving pictures on Thursday. The fracas took place in the vicinity of an amusement park ride, adding to the commotion that echoed through the fairground.",
+    "blogPost": "`Lo! As the sun dipped 'neath the horizon, casting its warm glow upon the merry revelers who sought delight in the Orange County Fair, a tale of tumult and disorder began to unfurl. The protagonists of our narrative, the famed rapper Machine Gun Kelly and the fair Megan Fox, known for her allure and beauty, found themselves entangled in a curious altercation.\n\nIn the company of their loyal sentinel, the valiant bodyguard, the pair wandered amidst the fair's mirth and gaiety, when, lo and behold, a miscreant, described as an attacker, did approach them with malevolence in his heart. A dispute, fierce and passionate, ensued, with the fair Megan Fox standing by her beloved, and the bodyguard ever-vigilant to protect those in his charge.\n\nUnbeknownst to the brawlers, the eyes of the modern age were upon them, for a device that traps moving images did capture the strife, preserving it for posterity. The scuffle, like a tempest that threatens to topple the grandest of oaks, unfolded near an amusement park ride, where merriment and excitement usually reside.\n\nThe echoes of the encounter resounded through the fairground, drawing both awe and consternation from those who bore witness. The news spread like wildfire, reaching the ears of people near and far, sparking discussions and debates among both commoners and gentry.\n\nYet, as with all tales of tumult and woe, there comes a moment of reprieve. As the fair's lights flickered, and the moon rose to take its place in the starry firmament, a semblance of calm returned. The protagonists, MGK and Megan Fox, withdrew from the fray, the bodyguard standing resolute, and the alleged attacker, whose motives may forever remain shrouded in mystery, vanished into the night.\n\nWhat prompted this clash? Whence came the hostility that beset the fair's merrymakers? Alas, dear readers, many questions persist, and answers may be elusive. For now, we are left with the moving pictures that shall etch this event into the annals of the present age.\n\nThus, let us reflect upon this tale of strife, and remember that even amidst the grandest of celebrations, discord may find its way. As the sun rises once more, and the fair resumes its course, we shall carry the memory of this tumultuous encounter, wondering what further twists and turns fate has in store for MGK, Megan Fox, and their loyal bodyguard in the tapestry of life.`", // The long blog post content goes here
+    "author": "William Shakespear",
+    "date": "23rd July 2023",
+    "urlToImage": "https://ktla.com/wp-content/uploads/sites/4/2023/07/AP22012863311588.jpg?w=1280",
+    "category": "Entertainment"
+  };
+let publishJSON = {
+    "data": {
+      "article_id": 12,
+      "Title": "Sample Title",
+      "Description": "Sample description of the article.",
+      "BlogPost": "The content of the blog post goes here.",
+      "Author": "Daniel Ford",
+      "Date": "2023-07-31",
+      "urlToImage": "https://example.com/sample-image.jpg",
+      "category": "Science"
+    }
+  };
 
 const formattedDate = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 
@@ -210,6 +205,7 @@ async function generateArticle() {
     description,
     author
   };
+  console.log(`request body: ${requestBody[0]}`);
 
   const requestOptions = {
     method: 'POST',
@@ -230,6 +226,8 @@ async function generateArticle() {
     }
 
     const responseData = await response.json();
+    console.log(`responseData ${responseData.Author}`);
+    console.log(`responseData ${responseData.author}`);
 
     generatedArticleData.author = responseData.author;
     generatedArticleData.blogPost = responseData.blogPost;
@@ -247,7 +245,9 @@ async function generateArticle() {
 
 async function renderGPTarticle() {
   try {
-    const generatedArticleData = await generateArticle();
+    generatedArticleData = await generateArticle();
+    console.log(generatedArticleData.Title);
+    console.log(generatedArticleData.title);
 
     document.querySelector('.article-title').textContent = generatedArticleData.title;
     document.querySelector('.article-description').textContent = generatedArticleData.description;
@@ -264,19 +264,19 @@ async function renderGPTarticle() {
 
 function saveGPTData() {
   // Update global values
-  publishJSON.data.title = generatedArticleData.title;
-  publishJSON.data.description = generatedArticleData.description;
-  publishJSON.data.blogPost = generatedArticleData.blogPost;
-  publishJSON.data.author = generatedArticleData.author;
-  publishJSON.data.date = formattedDate;
-  publishJSON.data.urlToImage = generatedArticleData.urlToImage;
-  publishJSON.data.category = generatedArticleData.category;
+  publishJSON.data.Title = generatedArticleData.title;
+  publishJSON.data.Description = generatedArticleData.description;
+  publishJSON.data.BlogPost = generatedArticleData.blogPost;
+  publishJSON.data.Author = generatedArticleData.author;
+  publishJSON.data.Date = formattedDate;
+  publishJSON.data.urlToImage = sourceArticleJSON.urlToImage;
+  publishJSON.data.category = sourceArticleJSON.category;
   // Generate a unique article_id
   publishJSON.data.article_id = Date.now();
 
   // Prepare the data to be sent as a POST request
   const postData = JSON.stringify(publishJSON);
-  console.log(postData);
+  console.log(`Publish params: ${postData}`);
 
   // Replace 'your-api-url-here' with the actual URL where you want to send the POST request
   const apiUrl = `${document.location.origin}/api/admin/save-gpt-data`;
