@@ -41,12 +41,12 @@ app.set('views', './develop/views');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '/develop/public')));
-
+// app.use(express.static(path.join(__dirname, 'public')));
 // Enable CORS for all routes
 app.use(cors());
 
 app.use(routes);
 
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });

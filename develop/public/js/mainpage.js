@@ -3,6 +3,9 @@ const url = document.location.href;
 const nameIndex = url.lastIndexOf('/');
 const testName = url.slice(nameIndex + 1, url.length);
 
+const deleteBtn = document.getElementById('delete-btn');
+const errorMessage = document.getElementById('errorMessage');
+
 tabs.forEach((tab) => {
   const tabName = tab.children[0].innerText.replace(' ', '');
   if (tabName === testName) {
@@ -38,9 +41,6 @@ cards.forEach((card) => {
     document.location.replace(`/article/${id}`);
   });
 });
-
-const deleteBtn = document.getElementById('delete-btn');
-const errorMessage = document.getElementById('errorMessage')
 
 deleteBtn.addEventListener('click', () => {
   errorMessage.classList.add('is-hidden');

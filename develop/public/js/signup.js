@@ -1,3 +1,6 @@
+const deleteBtn = document.getElementById('delete-btn');
+const errorMessage = document.getElementById('errorMessage');
+
 async function createEmail(event) {
   event.preventDefault();
 
@@ -28,9 +31,6 @@ async function createEmail(event) {
 }
 
 document.getElementById('submit').addEventListener('click', createEmail);
-
-const deleteBtn = document.getElementById('delete-btn');
-const errorMessage = document.getElementById('errorMessage')
 
 deleteBtn.addEventListener('click', () => {
   errorMessage.classList.add('is-hidden');

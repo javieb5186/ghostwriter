@@ -7,6 +7,7 @@ const seedDatabase = require('../../seeds/seed');
 const findArticleById = require('../helpers/article_idSearch');
 const articleUtils = require('../helpers/sourceArticleCatSearch');
 const { saveGPTdata } = require('../helpers/storeGPTresponse');
+// const isAdmin = require('../../utils/isAdmin');
 
 const router = express.Router();
 
@@ -119,6 +120,16 @@ router.get('/gptAricles/:articleId', async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+// route to render the Create Artucle page
+router.get('/adminTools/generator', (req, res) => {
+  try {
+    res.render('generate');
+  } catch (error) {
+    console.error('Error serving generator.html:', error);
+    res.status(500).send('Internal Server Error');
   }
 });
 

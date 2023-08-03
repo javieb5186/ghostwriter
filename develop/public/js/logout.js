@@ -1,3 +1,6 @@
+const deleteBtn2 = document.getElementById('delete-btn-2');
+const errorMessageLogout = document.getElementById('errorMessage-logout');
+
 const logout = async () => {
   const response = await fetch('/api/users/logout', {
     method: 'POST',
@@ -13,9 +16,6 @@ const logout = async () => {
 };
 
 document.querySelector('#logout').addEventListener('click', logout);
-
-const deleteBtn2 = document.getElementById('delete-btn-2');
-const errorMessageLogout = document.getElementById('errorMessage-logout');
 
 deleteBtn2.addEventListener('click', () => {
   errorMessageLogout.classList.add('is-hidden');

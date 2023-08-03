@@ -4,8 +4,8 @@
   "description": "A new website that is rewritten by any author",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run lint && node server.js",
+    "test": "npm run lint -- --fix && node server.js",
+    "start": "node server.js",
     "seed": "node develop/seeds/seed.js",
     "lint": "npx eslint develop server.js"
   },
