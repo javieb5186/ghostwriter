@@ -16,7 +16,7 @@ function renderData(data) {
    const template = Handlebars.compile(source);
   console.log(source);
    const rendered = template({ articles: data });
-   document.querySelector('.articles').innerHTML = rendered;
+   document.querySelector('.articles1').innerHTML = rendered;
   // Click event listeners to the article links
   const articleLinks = document.querySelectorAll('.article-link');
   articleLinks.forEach((link) => {
