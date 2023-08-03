@@ -11,6 +11,7 @@ const { searchByContent } = require('../helpers/contentInv');
 const Content = require('../../models/Content');
 // const isAdmin = require('../../utils/isAdmin');
 const User = require('../../models/User');
+
 const router = express.Router();
 // Route for seeding DB
 router.get('/seed-data', async (req, res) => {

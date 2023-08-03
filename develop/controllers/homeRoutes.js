@@ -103,7 +103,7 @@ router.get('/article/:id', auth, async (req, res) => {
     const content = await articleData.get({ plain: true });
     const user = userData.get({ plain: true });
 
-    res.render('article', { user , content });
+    res.render('article', { user, content });
   } catch (err) {
     res.status(500).json(err);
     console.error(err);
