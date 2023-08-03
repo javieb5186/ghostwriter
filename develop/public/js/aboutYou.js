@@ -72,4 +72,7 @@ if (localStorage.getItem('e') === null) {
 } else {
   document.getElementById('submit').addEventListener('click', createAccount);
   document.getElementById('icons').addEventListener('click', changeProfileIcon);
+  document.getElementById('icons2').addEventListener('click', changeProfileIcon);
+  document.getElementById('icons3').addEventListener('click', changeProfileIcon);
+  document.getElementById('icons4').addEventListener('click', changeProfileIcon);
 }

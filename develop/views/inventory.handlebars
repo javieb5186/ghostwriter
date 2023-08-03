@@ -1,0 +1,92 @@
+<h1>Ghost Writer</h1>
+    <div class="results-wrapper" id="results-container">
+        <div class="articles">
+            <!-- Handlebars template will be inserted here -->
+        </div>
+    </div>
+    <script id="article-template" type="text/x-handlebars-template">
+        {{#each content as |contents|}}
+        <button display-article-id="{{contents.article_id}}", onclick="myFunction(event)">DELETE</button>
+        <label for="title"><b>Type In New Title:</b></label>
+        <input type="text" placeholder="Enter New Title" id="newTitle_{{contents.article_id}}" required>
+        <button display-article-id="{{contents.article_id}}", type="submit" , onclick="myEditFunction(event)">Confrim</button>
+        <a href="#" class="article-link" data-article-id="{{contents.article_id}}">
+            <div class="article">
+                <div class="article-container">
+                    <h2>
+                        {{#if contents.urlToImage}}
+                        <a href="{{contents.urlToImage}}" target="_blank" rel="noopener noreferrer">
+                            {{contents.Title}}
+                        </a>
+                        {{else}}
+                        {{contents.Title}}
+                        {{/if}}
+                    </h2>
+                    {{#if contents.Author}}
+                    <h4>Author: {{contents.Author}}</h4>
+                    {{/if}}
+                    {{#if contents.Description}}
+                    <p>{{contents.Description}}</p>
+                    {{else}}
+                    <p>No description available.</p>
+                    {{/if}}
+                    {{#if contents.category}}
+                    <p>{{contents.category}}</p>
+                    {{else}}
+                    <p>No category available.</p>
+                    {{/if}}
+                </div>
+                <div class="image-container">
+                    {{#if contents.urlToImage}}
+                    <a href="{{contents.urlToImage}}" target="_blank" rel="noopener noreferrer">
+                        <img src="{{contents.urlToImage}}" alt="{{contents.Title}}">
+                    </a>
+                    {{else}}
+                    <p>No image available.</p>
+                    {{/if}}
+                </div>
+            </div>
+        </a>
+        {{/each}}
+    </script>
+    <!-- Use the Handlebars library from a CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+    <script src="/js/inventory.js"></script>
+    <script>
+      // Deletes article
+      async function myFunction(event) {
+        const clickedID = event.currentTarget;
+        const TestID = clickedID.getAttribute("display-article-id");
+        try {
+          const response = await fetch(`${document.location.origin}/api/admin/deleteArticle/${TestID}`, {
+            method: 'DELETE',
+          });
+          const deletedArticle = await response.json();
+          location.reload();
+          return deletedArticle;
+        }
+        catch (err) {
+          console.error('Error deleting article:', err);
+          throw err;
+        }
+      }
+      // Change title
+      async function myEditFunction(event) {
+          const clickedID = event.currentTarget;
+          const TestID = clickedID.getAttribute("display-article-id");
+          let newArticleTitle = document.getElementById(`newTitle_${TestID}`).value;
+          console.log(newArticleTitle);
+          try {
+          const response = await fetch(`${document.location.origin}/api/admin/updateTitle/${TestID}@${newArticleTitle}`, {
+          method: 'PUT',
+          });
+          const updatedArticle = await response.json();
+          location.reload();
+          return updatedArticle;
+          }
+          catch (err) {
+          console.error('Error deleting article:', err);
+          throw err;
+          }
+        }
+    </script>
