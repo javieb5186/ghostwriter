@@ -1,6 +1,6 @@
 <section class="level pt-6 pb-4">
         <!-- back button -->
-        <button id="back-btn" class="button is-large is-invisible is-white is-rounded level-left">
+        <button id="back-btn" class="button is-large is-ivisible is-white is-rounded level-left">
           {{!-- <ion-icon name="arrow-back-outline"></ion-icon> --}}
         </button>
 
@@ -24,6 +24,10 @@
                 <p>{{user.name}} is logged in</p>
             </div>
             <hr class="dropdown-divider">
+            <a href="#" id="generate" class="dropdown-item">
+                go to generate article
+            </a>
+            <hr class="dropdown-divider">
             <a href="#" id="return" class="dropdown-item">
                 return to mainpage
             </a>
@@ -35,9 +39,11 @@
         </div>
     </section>
 
-<h1>Ghost Writer</h1>
-    <div class="results-wrapper" id="results-container">
-        <div class="articles">
+{{!-- <h1>Ghost Writer</h1> --}}
+<h1 class="title is-size-2 is-size-4-mobile is-uppercase has-text-centered has-text-weight-normal">G h o s t w r i t e r</h1>
+<h1 class="title is-size-4 is-size-6-mobile has-text-centered has-text-weight-normal">admin inventory</h1>
+    <div class="results-wrapper" id="results-container1">
+        <div class="articles1">
             <!-- Handlebars template will be inserted here -->
         </div>
     </div>

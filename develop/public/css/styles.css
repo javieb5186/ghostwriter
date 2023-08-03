@@ -11,7 +11,7 @@ body {
 }
 
 /* Main container styles */
-#results-container {
+#results-container1 {
     max-width: 100%;
     padding: 20px 10px; /* Add vertical padding and reduce horizontal padding */
     box-sizing: border-box; /* Include padding in the width calculation */
@@ -29,13 +29,13 @@ h1 {
     gap: 20px; /* Add gap between grid items */
 }
 
-.article {
+.article1 {
     display: flex; /* Use flexbox for the article container */
     align-items: flex-start; /* Align items at the top */
 }
 
 /* Image styles */
-.article img {
+.article1 img {
     height: 200px;
     width: auto;
     padding: 20px;

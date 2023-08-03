@@ -53,6 +53,19 @@ router.get('/search/:category', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
+router.get('/inventory', async (req, res) => {
+  try {
+    const contents = await Content.findAll();
+    const content = await contents.map((cont) => cont.get({ plain: true }));
+    console.log(content);
+    res.render('inventory', { content });
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+module.exports = router;
+
 router.get('/searchall', async (req, res) => {
   try {
     const results = await searchByContent();
@@ -165,16 +178,3 @@ router.delete('/deleteArticle/:id', async (req, res) => {
     })
     .catch((err) => res.json(err));
 });
-
-router.get('/inventory', async (req, res) => {
-  try {
-    const contents = await Content.findAll();
-    const content = await contents.map((cont) => cont.get({ plain: true }));
-    console.log(content);
-    res.render('inventory', { content });
-  } catch (error) {
-    res.status(500).send(error);
-  }
-});
-
-module.exports = router;
