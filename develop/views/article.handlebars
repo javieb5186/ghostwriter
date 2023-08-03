@@ -1,6 +1,7 @@
     <section class="level pt-6 pb-4">
         <!-- inivisible button just balancing out the page -->
-        <button class="button is-large is-invisible is-white is-rounded level-left">
+        <button id="back-btn" class="button is-large is-white is-rounded level-left">
+          <ion-icon name="arrow-back-outline"></ion-icon>
         </button>
 
         <!-- title -->
@@ -31,7 +32,7 @@
         </div>
     </section>
 
-<section class="hero">
+{{!-- <section class="hero">
   <div class="hero-head">
     <nav class="navbar">
       <div class="container">
@@ -46,7 +47,7 @@
         </div>
       </div>
     </nav>
-  </div>
+  </div> --}}
   <!-- article title and author -->
   <div class="hero-body">
     <div class="container has-text-centered">
@@ -70,7 +71,7 @@
             <img src="{{content.urlToImage}}" alt=""/>
         </figure>
       </div>
-      <div class='card-content column is-10 is-offset-1'>
+      <div class='card-content column is-6 is-offset-3'>
         <!-- article content -->
         <p>
             <strong class="is-invisible">space</strong>{{content.BlogPost}}
@@ -99,3 +100,5 @@
 </footer>
 {{!-- scripts --}}
 <script src="/js/article.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
