@@ -1,13 +1,13 @@
 {
     "env": {
-        "browser": true,
-        "commonjs": true,
-        "es2021": true,
-        "node": true
+      "browser": true,
+      "commonjs": true,
+      "es2021": true,
+      "node": true
     },
     "extends": "airbnb-base",
     "parserOptions": {
-        "ecmaVersion": "latest"
+      "ecmaVersion": "latest"
     },
     "rules": {
       "no-param-reassign": [
@@ -15,6 +15,9 @@
         {
           "props": false
         }
-      ]
-    }
-}
+      ],
+      "no-control-regex": "off" // Disable the "no-control-regex" rule
+    },
+    "ignorePatterns": ["develop/public/js/generator.js"]
+  }
+  

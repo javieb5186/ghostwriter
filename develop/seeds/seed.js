@@ -8,14 +8,11 @@ const sourceArticleData = require('./sourceArticleData.json');
 const contentData = require('./contentData.json');
 
 const seedDatabase = async () => {
-  await sequelize.sync({ force: true });
+  await sequelize.sync({ force: false });
 
   await User.bulkCreate(userData);
   await Content.bulkCreate(contentData);
   await SourceArticles.bulkCreate(sourceArticleData);
-
-  // process.exit(0);
 };
 
-// seedDatabase();
 module.exports = seedDatabase;

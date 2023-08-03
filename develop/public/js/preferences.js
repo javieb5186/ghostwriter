@@ -1,17 +1,18 @@
 async function selectPrefs(event) {
   event.preventDefault();
 
+  // Get the current card element
   const cardCheckMark = event.currentTarget.children[0].children[0];
-  console.log(cardCheckMark.getAttribute('src'));
 
+  // If the card element is not check marked, check it. If it has checkmark, set it to no checkmark
   if (cardCheckMark.getAttribute('src') === '') {
     cardCheckMark.setAttribute('src', '/images/icon-check.png');
   } else {
     cardCheckMark.setAttribute('src', '');
   }
-  console.log();
 }
 
+// Get all the cards and add an event listener to all of them
 let cards = document.getElementsByClassName('card');
 cards = Array.from(cards);
 cards.forEach((element) => {
@@ -23,15 +24,37 @@ async function updateUserPrefs() {
   cards.forEach((element) => {
     const check = element.children[0].children[0];
     if (check.getAttribute('src') !== '') {
-      prefsArr.push(element.children[1].children[0].children[0].innerText.trim());
+      const text = element.children[1].children[0].children[0].innerText.trim();
+      const lower = text.toLowerCase();
+      prefsArr.push(lower);
     }
   });
-  if (prefsArr[prefsArr.length - 1] === 'all') {
-    prefsArr.splice(0, prefsArr.length - 1);
-  }
-  console.log(prefsArr);
 
-  // Start fetch
+  if (prefsArr[prefsArr.length - 1] === 'all') {
+    prefsArr.splice(0, prefsArr.length);
+  }
+
+  if (prefsArr.length === 0 || prefsArr[0] === 'all') {
+    cards.forEach((element) => {
+      const text = element.children[1].children[0].children[0].innerText.trim();
+      const lower = text.toLowerCase();
+      if (lower !== 'all') {
+        prefsArr.push(lower);
+      }
+    });
+  }
+
+  const response = await fetch('/api/users/update-prefs', {
+    method: 'POST',
+    body: JSON.stringify({ prefsArr }),
+    headers: { 'Content-Type': 'application/json' },
+  });
+
+  if (response.ok) {
+    document.location.replace('/main-news/foryou');
+  } else {
+    alert('An error occured');
+  }
 }
 
 document.getElementById('submit').addEventListener('click', updateUserPrefs);
