@@ -1,20 +1,30 @@
-<div class="container is-fluid">
-  <div class="columns">
-    <div class="column is-half is-offset-one-quarter has-text-centered">
-      <h1 class="title is-1">
-        Welcome
+<div class="container is-fluid pt-6">
+  <div class="columns pt-6">
+    <div class="column is-half is-offset-one-quarter has-text-centered pt-6">
+      <h1 class="title is-1 is-uppercase has-text-weight-normal">
+        W e l c o m e
       </h1>
-      <h3 class="subtitle is-3">
-        Let's setup your account!
+      <h3 class="subtitle is-4 has-text-grey-light pt-2 has-text-weight-normal">
+        let's setup your account!
       </h3>
       <div class="field has-text-left">
-        <label class="label">Email</label>
+        <label class="label has-text-grey has-text-weight-normal is-size-5">email</label>
         <div class="control">
           <input id="email" class="input" type="email" placeholder="Your Email" autocomplete="on" maxlength="50" required>
         </div>
       </div>
-      <input id="submit" type="submit" class="button is-normal is-dark is-rounded" value="Next">
-      <p>Or <a onclick="location.replace('/login')">sign in</a> if you already have an account.</p>
+      {{!-- error message - user already exists --}}
+      <article class="message is-hidden" id="errorMessage">
+        <div class="message-header">
+          <p>Oops!</p>
+          <button class="delete" id="delete-btn" aria-label="delete"></button>
+        </div>
+          <div class="message-body">
+            A user with this email already exists. Please <a onclick="location.replace('/login')">sign in</a>.
+          </div>
+      </article>
+      <input id="submit" type="submit" class="button is-normal" value="NEXT">
+      <p class="has-text-grey-dark pt-2 pb-6">or <a onclick="location.replace('/login')">sign in</a> if you already have an account.</p>
     </div>
   </div>
 </div>

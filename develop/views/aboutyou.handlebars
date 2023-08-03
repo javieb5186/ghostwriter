@@ -1,69 +1,85 @@
 <div class="container is-fluid mt-6">
   <div class="columns">
-    <div class="column is-one-fifth has-text-centered">
-      <h5 class="is-5">
-        (icon options)
-      </h5>
-      <div id="icons">
-        <figure id="i-white" class="image is-64x64 mx-auto mt-1">
-          <img class="is-rounded" src="/images/icon-white.png">
-        </figure>
-        <figure id="i-green" class="image is-64x64 mx-auto mt-1">
-          <img class="is-rounded" src="/images/icon-green.png">
-        </figure>
-        <figure id="i-grey" class="image is-64x64 mx-auto mt-1">
-          <img class="is-rounded" src="/images/icon-grey.png">
-        </figure>
-        <figure id="i-orange" class="image is-64x64 mx-auto mt-1">
-          <img class="is-rounded" src="/images/icon-orange.png">
-        </figure>
-        <figure id="i-pink" class="image is-64x64 mx-auto mt-1">
-          <img class="is-rounded" src="/images/icon-pink.png">
-        </figure>
-        <figure id="i-purple" class="image is-64x64 mx-auto mt-1">
-          <img class="is-rounded" src="/images/icon-purple.png">
-        </figure>
-        <figure id="i-red" class="image is-64x64 mx-auto mt-1">
-          <img class="is-rounded" src="/images/icon-red.png">
-        </figure>
-        <figure id="i-yellow" class="image is-64x64 mx-auto mt-1">
-          <img class="is-rounded" src="/images/icon-yellow.png">
-        </figure>
-      </div>
-    </div>
-    <div class="column is-four-fifths has-text-centered">
-      <h1 class="title is-1">
+    <div class="column is-10 is-offset-1 has-text-centered pt-6">
+      <h1 class="title is-1 has-text-weight-normal">
         MORE ABOUT YOU
       </h1>
       <figure class="image is-128x128 mx-auto">
-        <img id="profile-icon" class="is-rounded" src="/images/icon-white.png">
+        <img id="profile-icon" class="is-rounded" src="/images/icon-white.png"  alt="">
       </figure>
+      <div id="icons" class="columns">
+        <figure id="i-white" class="image is-64x64 mx-auto mt-1 column">
+          <img class="is-rounded" src="/images/icon-white.png" alt="">
+        </figure>
+        <figure id="i-green" class="image is-64x64 mx-auto mt-1 column">
+          <img class="is-rounded" src="/images/icon-green.png" alt="">
+        </figure>
+        <figure id="i-grey" class="image is-64x64 mx-auto mt-1 column">
+          <img class="is-rounded" src="/images/icon-grey.png" alt="">
+        </figure>
+        <figure id="i-orange" class="image is-64x64 mx-auto mt-1 column">
+          <img class="is-rounded" src="/images/icon-orange.png" alt="">
+        </figure>
+        <figure id="i-pink" class="image is-64x64 mx-auto mt-1 column">
+          <img class="is-rounded" src="/images/icon-pink.png" alt="">
+        </figure>
+        <figure id="i-purple" class="image is-64x64 mx-auto mt-1 column">
+          <img class="is-rounded" src="/images/icon-purple.png" alt="">
+        </figure>
+        <figure id="i-red" class="image is-64x64 mx-auto mt-1 column">
+          <img class="is-rounded" src="/images/icon-red.png" alt="">
+        </figure>
+        <figure id="i-yellow" class="image is-64x64 mx-auto mt-1 column">
+          <img class="is-rounded" src="/images/icon-yellow.png" alt="">
+        </figure>
+      </div>
       <div class="content">
-        <h4 class="is-4">
-          Select your profile icon
+        <h4 class="is-4 pt-5 has-text-grey has-text-weight-normal is-size-5">
+          select your profile icon
         </h4>
       </div>
       <div class="field has-text-left">
-        <label class="label">User Name</label>
+        <label class="label has-text-grey has-text-weight-normal is-size-5">User Name</label>
         <div class="control">
           <input id="name" class="input" type="text" placeholder="Your User Name" min="3" max="25" required>
         </div>
       </div>
       <div class="field has-text-left">
-        <label class="label">Password</label>
+        <label class="label has-text-grey has-text-weight-normal is-size-5">password</label>
         <div class="control">
           <input id="password" class="input" type="password" placeholder="Your Password" min="8" required>
         </div>
       </div>
-      <div class="field has-text-left">
-        <label class="label">Confirm Password</label>
+      <div class="field has-text-left pb-2">
+        <label class="label has-text-grey has-text-weight-normal is-size-5">confirm password</label>
         <div class="control">
           <input id="confirm-password" class="input" type="password" placeholder="Re-Enter Your Password" min="8" required>
         </div>
       </div>
-      <input id="submit" type="submit" class="button is-normal is-dark is-rounded" value="Create Account">
+      {{!-- error message - internal errror --}}
+      <article class="message is-hidden" id="errorMessage-us">
+        <div class="message-header">
+          <p>Oops!</p>
+          <button class="delete" id="delete-btn-2" aria-label="delete"></button>
+        </div>
+          <div class="message-body">
+            Something happened on our end. Please reload and try again.
+          </div>
+      </article>
+      {{!-- error message - invalid input --}}
+      <article class="message is-hidden" id="errorMessage">
+        <div class="message-header">
+          <p>Oops!</p>
+          <button class="delete" id="delete-btn" aria-label="delete"></button>
+        </div>
+          <div class="message-body">
+            Something inputted wasn't quite right. Please try again.
+          </div>
+      </article>
+
+      <input id="submit" type="submit" class="button is-normal pt-2" value="Create Account">
       <br>
-      <p>Or <a onclick="location.replace('/login')">sign in</a> if you already have an account.</p>
+      <p class="has-text-grey-dark pt-2">or <a onclick="location.replace('/login')">sign in</a> if you already have an account.</p>
     </div>
   </div>
 </div>

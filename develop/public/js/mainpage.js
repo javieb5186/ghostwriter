@@ -3,6 +3,9 @@ const url = document.location.href;
 const nameIndex = url.lastIndexOf('/');
 const testName = url.slice(nameIndex + 1, url.length);
 
+const deleteBtn = document.getElementById('delete-btn');
+const errorMessage = document.getElementById('errorMessage');
+
 tabs.forEach((tab) => {
   const tabName = tab.children[0].innerText.replace(' ', '');
   if (tabName === testName) {
@@ -20,7 +23,8 @@ async function updateMainPage(event) {
   if (response.ok) {
     document.location.replace(`/main-news/${categoryName}`);
   } else {
-    alert('Internal Error');
+    // alert('Internal Error');
+    errorMessage.classList.remove('is-hidden');
   }
 }
 
@@ -36,4 +40,8 @@ cards.forEach((card) => {
     localStorage.setItem('previousUrl', document.location.href);
     document.location.replace(`/article/${id}`);
   });
+});
+
+deleteBtn.addEventListener('click', () => {
+  errorMessage.classList.add('is-hidden');
 });

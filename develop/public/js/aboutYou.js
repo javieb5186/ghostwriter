@@ -10,6 +10,19 @@ async function createAccount(event) {
   const password = document.getElementById('password').value.trim();
   const confirmPassword = document.getElementById('confirm-password').value.trim();
 
+  const deleteBtn = document.getElementById('delete-btn');
+  const deleteBtn2 = document.getElementById('delete-btn-2');
+  const errorMessage = document.getElementById('errorMessage');
+  const errorMessageInternal = document.getElementById('errorMessage-us');
+
+  // delete buttons for error message
+  deleteBtn.addEventListener('click', () => {
+    errorMessage.classList.add('is-hidden');
+  });
+  deleteBtn2.addEventListener('click', () => {
+    errorMessageInternal.classList.add('is-hidden');
+  });
+
   // Test the name
   const validName = /^\w{3,25}$/.test(n);
 
@@ -37,10 +50,12 @@ async function createAccount(event) {
     if (response.ok) {
       document.location.replace('/preferences');
     } else {
-      alert('Internal Error');
+      // alert('Internal Error');
+      errorMessageInternal.classList.remove('is-hidden');
     }
   } else {
-    alert('Invalid input');
+    // alert('Invalid input');
+    errorMessage.classList.remove('is-hidden');
   }
 }
 

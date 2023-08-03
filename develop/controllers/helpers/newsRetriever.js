@@ -4,7 +4,7 @@ require('dotenv').config({ path: path.resolve(__dirname, '../../../.env') });
 
 const newsapi = new NewsAPI(process.env.NEWS_API_KEY);
 
-const categories = ['science', 'entertainment', 'health', 'sports', 'technology'];
+const categories = ['science', 'entertainment', 'health', 'sports', 'technology', 'general', 'business'];
 
 async function fetchNewsByCategories() {
   const newsPromises = categories.map(async (category) => {

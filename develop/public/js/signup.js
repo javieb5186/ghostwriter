@@ -1,3 +1,6 @@
+const deleteBtn = document.getElementById('delete-btn');
+const errorMessage = document.getElementById('errorMessage');
+
 async function createEmail(event) {
   event.preventDefault();
 
@@ -21,9 +24,14 @@ async function createEmail(event) {
       await localStorage.setItem('e', email);
       document.location.replace('/aboutyou');
     } else {
-      alert('User already exits');
+      // alert('User already exits');
+      errorMessage.classList.remove('is-hidden');
     }
   }
 }
 
 document.getElementById('submit').addEventListener('click', createEmail);
+
+deleteBtn.addEventListener('click', () => {
+  errorMessage.classList.add('is-hidden');
+});
