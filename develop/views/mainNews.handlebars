@@ -22,9 +22,9 @@
             <div class="dropdown-content">
             <div class="dropdown-item">
                 <p>{{user.name}} is logged in</p>
-                {{#if user.isAdmin}}
+                {{!-- {{#if user.isAdmin}} --}}
                 <button onclick="document.location.replace('/api/admin/adminTools/generator')">Admin</button>
-                {{/if}}
+                {{!-- {{/if}} --}}
             </div>
             <hr class="dropdown-divider">
             <a href="#" id="logout" class="dropdown-item">

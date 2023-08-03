@@ -1,6 +1,7 @@
     <section class="level pt-6 pb-4">
-        <!-- inivisible button just balancing out the page -->
-        <button class="button is-large is-invisible is-white is-rounded level-left">
+        <!-- back button -->
+        <button id="back-btn" class="button is-large is-invisible is-white is-rounded level-left">
+          {{!-- <ion-icon name="arrow-back-outline"></ion-icon> --}}
         </button>
 
         <!-- title -->
@@ -21,8 +22,12 @@
             <div class="dropdown-content">
             <div class="dropdown-item">
                 <p>{{user.name}} is logged in</p>
-                <button onclick="document.location.replace('/api/admin/adminTools/generator')">Admin</button>
+                {{!-- <button onclick="document.location.replace('/api/admin/adminTools/generator')">Admin</button> --}}
             </div>
+            <hr class="dropdown-divider">
+            <a href="#" id="return" class="dropdown-item">
+                return to mainpage
+            </a>
             <hr class="dropdown-divider">
             <a href="#" id="logout" class="dropdown-item">
                 logout
@@ -159,3 +164,6 @@
         });
     </script>
 
+{{!-- icon scripts --}}
+{{!-- <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> --}}

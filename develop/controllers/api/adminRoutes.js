@@ -8,6 +8,7 @@ const findArticleById = require('../helpers/article_idSearch');
 const articleUtils = require('../helpers/sourceArticleCatSearch');
 const { saveGPTdata } = require('../helpers/storeGPTresponse');
 // const isAdmin = require('../../utils/isAdmin');
+const User = require('../../models/User');
 
 const router = express.Router();
 
@@ -124,9 +125,12 @@ router.get('/gptAricles/:articleId', async (req, res) => {
 });
 
 // route to render the Create Artucle page
-router.get('/adminTools/generator', (req, res) => {
+router.get('/adminTools/generator', async (req, res) => {
   try {
-    res.render('generate');
+    const userData = await User.findByPk(req.session.user_id);
+    const user = userData.get({ plain: true });
+
+    res.render('generate', { user });
   } catch (error) {
     console.error('Error serving generator.html:', error);
     res.status(500).send('Internal Server Error');

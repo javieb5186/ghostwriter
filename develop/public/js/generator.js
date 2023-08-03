@@ -304,3 +304,9 @@ function saveGPTData() {
       console.error('Error saving data:', error);
     });
 }
+
+const returnBtn = document.getElementById('return');
+
+returnBtn.addEventListener('click', () => {
+  document.location.replace('/main-news/foryou')
+});

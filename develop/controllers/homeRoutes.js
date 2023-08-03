@@ -98,10 +98,12 @@ router.get('/main-news/:category', auth, async (req, res) => {
 router.get('/article/:id', auth, async (req, res) => {
   try {
     const articleData = await Content.findByPk(req.params.id);
+    const userData = await User.findByPk(req.session.user_id);
 
     const content = await articleData.get({ plain: true });
+    const user = userData.get({ plain: true });
 
-    res.render('article', { content });
+    res.render('article', { user , content });
   } catch (err) {
     res.status(500).json(err);
     console.error(err);
@@ -118,29 +120,29 @@ router.get('/preferences', async (req, res) => {
   }
 });
 
-router.get('/article', async (req, res) => {
-  try {
-    const userData = await User.findByPk(req.params.id, {
-      attributes: { include: ['isAdmin'] },
-    });
-    const articleContent = await Content.findByPk(req.params.id, {
-      attributes: { exclude: ['Description'] },
-    });
+// router.get('/article', async (req, res) => {
+//   try {
+//     const userData = await User.findByPk(req.params.id, {
+//       attributes: { include: ['isAdmin'] },
+//     });
+//     const articleContent = await Content.findByPk(req.params.id, {
+//       attributes: { exclude: ['Description'] },
+//     });
 
-    const user = userData.get({ plain: true });
-    const content = articleContent.get({ plain: true });
-    console.log(user);
-    console.log(content);
+//     const user = userData.get({ plain: true });
+//     const content = articleContent.get({ plain: true });
+//     console.log(user);
+//     console.log(content);
 
-    res.render('mainNews', {
-      user,
-      content,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-    console.error(err);
-  }
-});
+//     res.render('mainNews', {
+//       user,
+//       content,
+//       logged_in: req.session.logged_in,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//     console.error(err);
+//   }
+// });
 
 module.exports = router;
