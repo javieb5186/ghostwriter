@@ -1,3 +1,36 @@
+    <section class="level pt-6 pb-4">
+        <!-- inivisible button just balancing out the page -->
+        <button class="button is-large is-invisible is-white is-rounded level-left">
+        </button>
+
+        <!-- title -->
+        <div class="level-item">
+          <h1 class="title is-size-2 is-size-4-mobile is-uppercase has-text-centered has-text-weight-normal">G h o s t w r i t e r</h1>
+        </div>
+
+        <!-- login icon => click for dropdown => who is logged in and a logout button -->
+        <div class="dropdown is-hoverable px-4 is-right level-right">
+        <div class="dropdown-trigger level-item">
+            <button class="button is-large is-white is-rounded" aria-haspopup="true" aria-controls="dropdown-menu">
+            <span class="icon is-large">
+                <img class="is-rounded" src="{{user.profileIcon}}" alt="profile icon">
+            </span>
+            </button>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+            <div class="dropdown-content">
+            <div class="dropdown-item">
+                <p>{{user.name}} is logged in</p>
+                <button onclick="document.location.replace('/api/admin/adminTools/generator')">Admin</button>
+            </div>
+            <hr class="dropdown-divider">
+            <a href="#" id="logout" class="dropdown-item">
+                logout
+            </a>
+        </div>
+        </div>
+    </section>
+
 <div id="category-tabs">
         <button class="tab" data-category="science">Science</button>
         <button class="tab" data-category="business">Business</button>

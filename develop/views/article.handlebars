@@ -1,3 +1,36 @@
+    <section class="level pt-6 pb-4">
+        <!-- inivisible button just balancing out the page -->
+        <button class="button is-large is-invisible is-white is-rounded level-left">
+        </button>
+
+        <!-- title -->
+        <div class="level-item">
+          <h1 class="title is-size-2 is-size-4-mobile is-uppercase has-text-centered has-text-weight-normal">G h o s t w r i t e r</h1>
+        </div>
+
+        <!-- login icon => click for dropdown => who is logged in and a logout button -->
+        <div class="dropdown is-hoverable px-4 is-right level-right">
+        <div class="dropdown-trigger level-item">
+            <button class="button is-large is-white is-rounded" aria-haspopup="true" aria-controls="dropdown-menu">
+            <span class="icon is-large">
+                <img class="is-rounded" src="{{user.profileIcon}}" alt="profile icon">
+            </span>
+            </button>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+            <div class="dropdown-content">
+            <div class="dropdown-item">
+                <p>{{user.name}} is logged in</p>
+                <button onclick="document.location.replace('/api/admin/adminTools/generator')">Admin</button>
+            </div>
+            <hr class="dropdown-divider">
+            <a href="#" id="logout" class="dropdown-item">
+                logout
+            </a>
+        </div>
+        </div>
+    </section>
+
 <section class="hero">
   <div class="hero-head">
     <nav class="navbar">
@@ -29,19 +62,20 @@
   </div>
 </section>
 <!-- article -->
-<div class='column is-full'>
+<div class='columns is-full'>
     <div class='card equal-height'>
-      <div class="card-image has-text-centered column is-10 is-offset-1">
-        <figure classs="image">
+      <div class="card-image has-text-centered column is-6 is-offset-3">
+        <figure class="image">
             <!-- article image -->
             <img src="{{content.urlToImage}}" alt=""/>
         </figure>
       </div>
-      <div class='card-content'>
+      <div class='card-content column is-10 is-offset-1'>
         <!-- article content -->
         <p>
-            {{content.BlogPost}}
+            <strong class="is-invisible">space</strong>{{content.BlogPost}}
             <br>
+            <hr>
             {{content.Date}}
         </p>
       </div>
@@ -49,16 +83,16 @@
     
 </div>
 <!-- back and forward buttons -->
-<div class="columns is-mobile">
+{{!-- <div class="columns is-mobile">
     <div class="column is-4 is-offset-4">
         <button class="button back-btn">previous article</button>
         <button class="button next-btn">next article</button>
     </div>
-</div>
+</div> --}}
 <footer class="footer">
     <div class="content has-text-centered">
       <p>
-        <strong>GHOSTWRITER</strong> by <a href="https://github.com/javieb5186">Javier</a>, <a href="https://github.com/DanielFord11">Daniel</a>, <a href="https://github.com/markymark97">Mark</a>, & <a href="https://github.com/Sarah-Paterson">Sarah</a>. The source code is licensed
+        <strong>GHOSTWRITER</strong> by <a href="https://github.com/javieb5186">Javier</a>, <a href="https://github.com/DanielFord11">Daniel</a>, <a href="https://github.com/markymark97">Mark</a>, and <a href="https://github.com/Sarah-Paterson">Sarah</a>. The source code is licensed
         <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
       </p>
     </div>

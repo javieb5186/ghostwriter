@@ -1,11 +1,11 @@
 <div class="container is-fluid mt-6">
-  <div class="columns">
-    <div class="column is-half is-offset-one-quarter has-text-centered">
-      <h1 class="title is-1">
+  <div class="columns pt-6">
+    <div class="column is-10 is-offset-1 has-text-centered">
+      <h1 class="title is-1 is-uppercase has-text-weight-normal">
         What Piques your interest?
       </h1>
-      <h3 class="subtitle is-3">
-        Please select at least one category to continue
+      <h3 class="subtitle is-3 has-text-grey-light py-2 has-text-weight-normal pb-3">
+        please select at least one category to continue
       </h3>
     </div>
   </div>
@@ -17,7 +17,7 @@
       </figure>
       <div class="columns">
         <div class="column has-text-centered">
-          <h2 class="title is-2">
+          <h2 class="title is-3 is-uppercase has-text-weight-normal">
             {{n}}
           </h2>
           <div class="columns has-text-centered">
@@ -59,9 +59,19 @@
     </div>
     {{/each}}
   </div>
+  {{!-- error message - invalid input --}}
+  <article class="message is-hidden" id="errorMessage">
+    <div class="message-header">
+      <p>Oops!</p>
+      <button class="delete" id="delete-btn" aria-label="delete"></button>
+    </div>
+      <div class="message-body">
+        Something went wrong. Please try again.
+      </div>
+  </article>
   <div class="columns">
-    <div class="column">
-        <input id="submit" type="submit" class="button is-normal is-dark is-rounded" value="Let's Go!">
+    <div class="column is-2 is-offset-5 pb-5">
+        <input id="submit" type="submit" class="button is-normal is-uppercase" value="let's go!">
     </div>
   </div>
 </div>

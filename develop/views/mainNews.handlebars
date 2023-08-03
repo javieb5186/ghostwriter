@@ -6,7 +6,7 @@
 
         <!-- title -->
         <div class="level-item">
-          <h1 class="title is-size-2 is-size-4-mobile is-uppercase has-text-centered">G h o s t w r i t e r</h1>
+          <h1 class="title is-size-2 is-size-4-mobile is-uppercase has-text-centered has-text-weight-normal">G h o s t w r i t e r</h1>
         </div>
 
         <!-- login icon => click for dropdown => who is logged in and a logout button -->
@@ -28,7 +28,6 @@
             <a href="#" id="logout" class="dropdown-item">
                 logout
             </a>
-            </div>
         </div>
         </div>
 
@@ -48,11 +47,11 @@
     <!-- not sure mvp needs a search bar -->
 
     <!-- category selection tabs (tablet and bigger) -->
-      <div class="tabs is-centered is-hidden-mobile">
+      <div class="tabs is-centered ">
         <ul>
           <li class="tablinks" data-target="for-you">
             <a>for you</a>
-            </li>
+          </li>
           <li class="tablinks" data-target="business">
             <a>business</a>
           </li>
@@ -76,45 +75,6 @@
           </li>
         </ul>
       </div>
-
-      <!-- category selection tabs (smaller than tablet) -->
-      {{!-- <div class="dropdown is-hoverable is-hidden-tablet">
-        <div class="dropdown-trigger">
-          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
-            <span>
-                categories
-            </span>
-          </button>
-        </div>
-        <div class="dropdown-menu" id="dropdown-menu3" role="menu">
-          <div class="dropdown-content">
-            <a href="#" class="tablinks" data-target="for-you">
-              for you
-            </a>
-            <a href="#" class="tablinks" data-target="business">
-              business
-            </a>
-            <a href="#" class="tablinks" data-target="entertainment">
-              entertainment
-            </a>
-            <a href="#" class="tablinks" data-target="general">
-              general
-            </a>
-            <a href="#" class="tablinks" data-target="health">
-              health
-            </a>
-            <a href="#" class="tablinks" data-target="science">
-              science
-            </a>
-            <a href="#" class="tablinks" data-target="sports">
-              sports
-            </a>
-            <a href="#" class="tablinks" data-target="technology">
-              technology
-            </a>
-          </div>
-        </div>
-      </div> --}}
       
       <!-- tab content -->
       <div class="tabcontent">
@@ -162,6 +122,38 @@
           <li><a class="pagination-link" aria-label="Goto page 86">86</a></li>
         </ul>
     </nav> --}}
+
+  
+   {{!-- error message - invalid input --}}
+   <article class="message is-hidden" id="errorMessage">
+     <div class="message-header">
+       <p>Oops!</p>
+      <button class="delete" id="delete-btn" aria-label="delete"></button>
+       </div>
+       <div class="message-body">
+        Something went wrong. Please reload and try again.
+      </div>
+    </article>
+
+     {{!-- error message - logout error --}}
+   <article class="message is-hidden" id="errorMessage-logout">
+     <div class="message-header">
+       <p>Oops!</p>
+      <button class="delete" id="delete-btn-2" aria-label="delete"></button>
+       </div>
+       <div class="message-body">
+        Something went wrong. Please reload and try again.
+      </div>
+    </article>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>GHOSTWRITER</strong> by <a href="https://github.com/javieb5186">Javier</a>, <a href="https://github.com/DanielFord11">Daniel</a>, <a href="https://github.com/markymark97">Mark</a>, and <a href="https://github.com/Sarah-Paterson">Sarah</a>. The source code is licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+      </p>
+    </div>
+  </footer>
 
     <!-- scripts -->
     <script src="/js/mainpage.js"></script>
