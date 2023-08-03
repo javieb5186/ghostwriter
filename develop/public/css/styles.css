@@ -1,0 +1,109 @@
+/* Reset some default styles */
+body, h1, h2, h4, p, img {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a base font size and line height */
+body {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Main container styles */
+#results-container {
+    max-width: 100%;
+    padding: 20px 10px; /* Add vertical padding and reduce horizontal padding */
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Grid layout for articles */
+.articles {
+    display: grid;
+    grid-template-columns: 1fr; /* Set the columns to take equal space */
+    gap: 20px; /* Add gap between grid items */
+}
+
+.article {
+    display: flex; /* Use flexbox for the article container */
+    align-items: flex-start; /* Align items at the top */
+}
+
+/* Image styles */
+.article img {
+    height: 200px;
+    width: auto;
+    padding: 20px;
+}
+
+/* Article text container */
+.article-container {
+    flex: 1; /* Let the container take the remaining space */
+    padding: 20px; /* Add padding to create space around the content */
+    background-color: #fff;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
+    border-radius: 10px;
+}
+
+/* Title styles */
+h2 {
+    margin-bottom: 5px;
+}
+
+/* Author styles */
+h4 {
+    margin-bottom: 10px;
+}
+
+/* Description styles */
+p {
+    margin-bottom: 15px;
+}
+
+/* Category tabs styles */
+#category-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the tabs horizontally */
+    margin-bottom: 20px;
+  }
+  
+  .tab {
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none; /* Remove the default border */
+    position: relative;
+  }
+  
+  .tab::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px; /* Height of the connecting line */
+    width: 100%;
+    background-color: #007BFF; /* Blue color for the connecting line */
+    transform: scaleX(0); /* Initially hidden */
+    transform-origin: left; /* Transform origin from the left */
+    transition: transform 0.3s ease; /* Transition for the connecting line */
+  }
+  
+  .tab.active {
+    color: #007BFF; /* Blue color for the active tab letters */
+  }
+  
+  .tab.active::after {
+    transform: scaleX(1); /* Show the connecting line for active tab */
+  }
+  
+
+/* Article link styles */
+.article-link {
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit the link color from the parent */
+}

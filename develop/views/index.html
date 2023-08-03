@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Ghost Writer</h1>
+  
+
+
+    <div class="results-wrapper" id="results-container">
+        <div class="articles">
+            <!-- Handlebars template will be inserted here -->
+        </div>
+    </div>
+
+    <script id="article-template" type="text/x-handlebars-template">
+        {{#each articles}}
+
+        
+      
+ 
+           
+      
+        <button display-article-id="{{article_id}}", onclick="myFunction()">DELETE</button>
+       
+        <label for="title"><b>Type In New Title:</b></label>
+        <input type="text" placeholder="Enter New Title" id="newTitle_{{article_id}}" required>
+        <button display-article-id="{{article_id}}", type="submit" , onclick="myEditFunction()">Confrim</button>
+    
+
+       
+          
+
+        
+        
+        
+        <a href="#" class="article-link" data-article-id="{{article_id}}">
+            
+            <div class="article">
+                <div class="article-container">
+                    <h2>
+                        {{#if urlToArticle}}
+                        <a href="{{urlToArticle}}" target="_blank" rel="noopener noreferrer">
+                            {{Title}}
+                        </a>
+                        {{else}}
+                        {{Title}}
+                        {{/if}}
+                    </h2>
+                    {{#if Author}}
+                    <h4>Author: {{Author}}</h4>
+                    {{/if}}
+                    {{#if Description}}
+                    <p>{{Description}}</p>
+                    {{else}}
+                    <p>No description available.</p>
+                    {{/if}}
+                    {{#if category}}
+                    <p>{{category}}</p>
+                    {{else}}
+                    <p>No category available.</p>
+                    {{/if}}
+                </div>
+                <div class="image-container">
+                    {{#if urlToImage}}
+                    <a href="{{urlToImage}}" target="_blank" rel="noopener noreferrer">
+                        <img src="{{urlToImage}}" alt="{{Title}}">
+                    </a>
+                    {{else}}
+                    <p>No image available.</p>
+                    {{/if}}
+                </div>
+            </div>
+        </a>
+        {{/each}}
+    </script>
+
+    <!-- Use the Handlebars library from a CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+    <script src="main.js"></script>
+    <script>
+
+          
+      // Handle click event for article links
+      const articleID = 0;
+      document.addEventListener("click", (event) => {
+        const clickedLink = event.target;
+        if (clickedLink.classList.contains("article-link")) {
+            alert("Test")
+          event.preventDefault();
+           articleID = clickedLink.getAttribute("data-article-id");
+          
+            
+          window.location.href = `article.html?article_id=${articleID}`;
+         
+        }
+      });
+
+      
+
+      async function myFunction(){
+        const clickedID = event.target;
+        TestID = clickedID.getAttribute("display-article-id");     
+        articleId = TestID;
+        try {
+         const response = await fetch(`http://localhost:3001/api/admin/${articleId}`, {
+         method: 'DELETE',
+         
+       
+        });
+       
+        const deletedArticle = await response.json();
+        location.reload() 
+        return deletedArticle;
+        } 
+        catch (err) {
+        console.error('Error deleting article:', err);
+        throw err;
+         }
+         
+               }
+
+
+    async function myEditFunction(){
+        const clickedID = event.target;
+        TestID = clickedID.getAttribute("display-article-id");     
+        articleId = TestID;
+        let  newArticleTitle = document.getElementById(`newTitle_${TestID}`).value;
+        
+        console.log(articleID)
+        try {
+         const response = await fetch(`http://localhost:3001/api/admin/${articleId}@${newArticleTitle}`, {
+         method: 'PUT',
+        
+       
+        });
+        
+        const updatedArticle = await response.json();
+       
+        location.reload() 
+        console.log(updatedArticle)
+        return updatedArticle;
+        } 
+        catch (err) {
+        console.error('Error deleting article:', err);
+        throw err;
+         }
+         
+               }
+             
+
+    </script>
+   
+</body>
+</html>
