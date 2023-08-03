@@ -60,3 +60,9 @@ const returnBtn = document.getElementById('return');
 returnBtn.addEventListener('click', () => {
   document.location.replace('/main-news/foryou')
 });
+
+const generateBtn = document.getElementById('generate');
+
+generateBtn.addEventListener('click', () => {
+  document.location.replace('/api/admin/adminTools/generator')
+});

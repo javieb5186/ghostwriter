@@ -57,9 +57,11 @@ router.get('/search/:category', async (req, res) => {
 router.get('/inventory', async (req, res) => {
   try {
     const contents = await Content.findAll();
+    const userData = await User.findByPk(req.session.user_id);
     const content = await contents.map((cont) => cont.get({ plain: true }));
+    const user = userData.get({ plain: true });
     console.log(content);
-    res.render('inventory', { content });
+    res.render('inventory', { content, user });
   } catch (error) {
     res.status(500).send(error);
   }

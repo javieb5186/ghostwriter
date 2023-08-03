@@ -310,3 +310,9 @@ const returnBtn = document.getElementById('return');
 returnBtn.addEventListener('click', () => {
   document.location.replace('/main-news/foryou')
 });
+
+const inventoryBtn = document.getElementById('inventory');
+
+inventoryBtn.addEventListener('click', () => {
+  document.location.replace('/api/admin/inventory')
+});

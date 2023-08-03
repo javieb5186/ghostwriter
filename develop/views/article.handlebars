@@ -25,7 +25,7 @@
               </div>
               {{!-- {{#if user.isAdmin}} --}}
               <hr class="dropdown-divider">
-              <a onclick="document.location.replace('/api/admin/adminTools/generator')" href="#" class="dropdown-item">
+              <a onclick="document.location.replace('/api/admin/inventory')" href="#" class="dropdown-item">
                   admin
               </a>
               {{!-- {{/if}} --}}
@@ -38,27 +38,11 @@
         
     </section>
 
-{{!-- <section class="hero">
-  <div class="hero-head">
-    <nav class="navbar">
-      <div class="container">
-        <div class="navbar-brand">
-          <a class="navbar-item px-6 pt-4 pb-0">
-            <!-- back button -->
-            <!-- works to go back to main page for normies and to go back to the edit page for admin -->
-            <button id="back-btn" class="button">
-                go back
-            </button>
-          </a>
-        </div>
-      </div>
-    </nav>
-  </div> --}}
   <!-- article title and author -->
-  <div class="hero-body">
+  <div class="hero-body px-6">
     <div class="container has-text-centered">
     <!-- title -->
-    <p class="title is-size-3 is-size-5-mobile">
+    <p class="title is-size-3 is-size-5-mobile px-6">
       {{content.Title}}
     </p>
     <!-- author -->
@@ -69,15 +53,15 @@
   </div>
 </section>
 <!-- article -->
-<div class='columns is-full'>
+<div class='columns is-full px-6'>
     <div class='card equal-height'>
       <div class="card-image has-text-centered column is-6 is-offset-3">
-        <figure class="image">
+        <figure class="image px-2">
             <!-- article image -->
             <img src="{{content.urlToImage}}" alt=""/>
         </figure>
       </div>
-      <div class='card-content column is-6 is-offset-3'>
+      <div class='card-content column is-8 is-offset-2 px-6'>
         <!-- article content -->
         <p>
             <strong class="is-invisible">space</strong>{{content.BlogPost}}
