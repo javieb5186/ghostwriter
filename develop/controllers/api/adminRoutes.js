@@ -10,6 +10,8 @@ const { saveGPTdata } = require('../helpers/storeGPTresponse');
 const { searchByContent } = require('../helpers/contentInv');
 const Content = require('../../models/Content');
 // const isAdmin = require('../../utils/isAdmin');
+const User = require('../../models/User');
+
 const router = express.Router();
 // Route for seeding DB
 router.get('/seed-data', async (req, res) => {
@@ -56,9 +58,11 @@ router.get('/search/:category', async (req, res) => {
 router.get('/inventory', async (req, res) => {
   try {
     const contents = await Content.findAll();
+    const userData = await User.findByPk(req.session.user_id);
     const content = await contents.map((cont) => cont.get({ plain: true }));
+    const user = userData.get({ plain: true });
     console.log(content);
-    res.render('inventory', { content });
+    res.render('inventory', { content, user });
   } catch (error) {
     res.status(500).send(error);
   }
@@ -129,15 +133,20 @@ router.get('/gptAricles/:articleId', async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+
 // route to render the Create Artucle page
-router.get('/adminTools/generator', (req, res) => {
+router.get('/adminTools/generator', async (req, res) => {
   try {
-    res.render('generate');
+    const userData = await User.findByPk(req.session.user_id);
+    const user = userData.get({ plain: true });
+
+    res.render('generate', { user });
   } catch (error) {
     console.error('Error serving generator.html:', error);
     res.status(500).send('Internal Server Error');
   }
 });
+
 router.put('/updateTitle/:id', async (req, res) => {
   const temp = req.params.id;
   const myArray = temp.split('@');
@@ -160,6 +169,7 @@ router.put('/updateTitle/:id', async (req, res) => {
     })
     .catch((err) => res.json(err));
 });
+
 router.delete('/deleteArticle/:id', async (req, res) => {
   Content.destroy({
     where: {

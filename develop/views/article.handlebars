@@ -1,6 +1,7 @@
     <section class="level pt-6 pb-4">
-        <!-- inivisible button just balancing out the page -->
-        <button class="button is-large is-invisible is-white is-rounded level-left">
+        <!-- back button -->
+        <button id="back-btn" class="button is-large is-white is-rounded level-left">
+          <ion-icon name="arrow-back-outline"></ion-icon>
         </button>
 
         <!-- title -->
@@ -10,48 +11,38 @@
 
         <!-- login icon => click for dropdown => who is logged in and a logout button -->
         <div class="dropdown is-hoverable px-4 is-right level-right">
-        <div class="dropdown-trigger level-item">
-            <button class="button is-large is-white is-rounded" aria-haspopup="true" aria-controls="dropdown-menu">
-            <span class="icon is-large">
-                <img class="is-rounded" src="{{user.profileIcon}}" alt="profile icon">
-            </span>
-            </button>
+          <div class="dropdown-trigger level-item">
+              <button class="button is-large is-white is-rounded" aria-haspopup="true" aria-controls="dropdown-menu">
+              <span class="icon is-large">
+                  <img class="is-rounded" src="{{user.profileIcon}}" alt="profile icon">
+              </span>
+              </button>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+              <div class="dropdown-content">
+              <div class="dropdown-item">
+                  <p>{{user.name}} is logged in</p>
+              </div>
+              {{!-- {{#if user.isAdmin}} --}}
+              <hr class="dropdown-divider">
+              <a onclick="document.location.replace('/api/admin/inventory')" href="#" class="dropdown-item">
+                  admin
+              </a>
+              {{!-- {{/if}} --}}
+              <hr class="dropdown-divider">
+              <a href="#" id="logout" class="dropdown-item">
+                  logout
+              </a>
+          </div>
         </div>
-        <div class="dropdown-menu" id="dropdown-menu2" role="menu">
-            <div class="dropdown-content">
-            <div class="dropdown-item">
-                <p>{{user.name}} is logged in</p>
-                <button onclick="document.location.replace('/api/admin/adminTools/generator')">Admin</button>
-            </div>
-            <hr class="dropdown-divider">
-            <a href="#" id="logout" class="dropdown-item">
-                logout
-            </a>
-        </div>
-        </div>
+        
     </section>
 
-<section class="hero">
-  <div class="hero-head">
-    <nav class="navbar">
-      <div class="container">
-        <div class="navbar-brand">
-          <a class="navbar-item px-6 pt-4 pb-0">
-            <!-- back button -->
-            <!-- works to go back to main page for normies and to go back to the edit page for admin -->
-            <button id="back-btn" class="button">
-                go back
-            </button>
-          </a>
-        </div>
-      </div>
-    </nav>
-  </div>
   <!-- article title and author -->
-  <div class="hero-body">
+  <div class="hero-body px-6">
     <div class="container has-text-centered">
     <!-- title -->
-    <p class="title is-size-3 is-size-5-mobile">
+    <p class="title is-size-3 is-size-5-mobile px-6">
       {{content.Title}}
     </p>
     <!-- author -->
@@ -62,15 +53,15 @@
   </div>
 </section>
 <!-- article -->
-<div class='columns is-full'>
+<div class='columns is-full px-6'>
     <div class='card equal-height'>
       <div class="card-image has-text-centered column is-6 is-offset-3">
-        <figure class="image">
+        <figure class="image px-2">
             <!-- article image -->
             <img src="{{content.urlToImage}}" alt=""/>
         </figure>
       </div>
-      <div class='card-content column is-10 is-offset-1'>
+      <div class='card-content column is-8 is-offset-2 px-6'>
         <!-- article content -->
         <p>
             <strong class="is-invisible">space</strong>{{content.BlogPost}}
@@ -99,3 +90,6 @@
 </footer>
 {{!-- scripts --}}
 <script src="/js/article.js"></script>
+<script src="/js/logout.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

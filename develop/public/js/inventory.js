@@ -1,3 +1,4 @@
+// const Handlebars = require('express-handlebars');
 // const { articleID } = require('./article');
 // Function to make the API call and fetch data
 function fetchDataFromAPI() {
@@ -13,10 +14,10 @@ function fetchDataFromAPI() {
 function renderData(data) {
   console.log('Data:', data); // Add this line to check the data being received
   const source = document.getElementById('article-template').innerHTML;
-   const template = Handlebars.compile(source);
+  const template = Handlebars.compile(source);
   console.log(source);
-   const rendered = template({ articles: data });
-   document.querySelector('.articles1').innerHTML = rendered;
+  const rendered = template({ articles: data });
+  document.querySelector('.articles1').innerHTML = rendered;
   // Click event listeners to the article links
   const articleLinks = document.querySelectorAll('.article-link');
   articleLinks.forEach((link) => {
@@ -53,4 +54,16 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchDataFromAPI(defaultCategory)
     .then((data) => renderData(data))
     .catch((error) => console.error('Error:', error));
+});
+
+const returnBtn = document.getElementById('return');
+
+returnBtn.addEventListener('click', () => {
+  document.location.replace('/main-news/foryou');
+});
+
+const generateBtn = document.getElementById('generate');
+
+generateBtn.addEventListener('click', () => {
+  document.location.replace('/api/admin/adminTools/generator');
 });
