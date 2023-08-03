@@ -117,15 +117,20 @@ router.get('/gptAricles/:articleId', async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+
 // route to render the Create Artucle page
-router.get('/adminTools/generator', (req, res) => {
+router.get('/adminTools/generator', async (req, res) => {
   try {
-    res.render('generate');
+    const userData = await User.findByPk(req.session.user_id);
+    const user = userData.get({ plain: true });
+
+    res.render('generate', { user });
   } catch (error) {
     console.error('Error serving generator.html:', error);
     res.status(500).send('Internal Server Error');
   }
 });
+
 router.put('/updateTitle/:id', async (req, res) => {
   const temp = req.params.id;
   const myArray = temp.split('@');
@@ -148,6 +153,7 @@ router.put('/updateTitle/:id', async (req, res) => {
     })
     .catch((err) => res.json(err));
 });
+
 router.delete('/deleteArticle/:id', async (req, res) => {
   Content.destroy({
     where: {
@@ -159,17 +165,16 @@ router.delete('/deleteArticle/:id', async (req, res) => {
     })
     .catch((err) => res.json(err));
 });
+
 router.get('/inventory', async (req, res) => {
   try {
-    const userData = await User.findByPk(req.session.user_id);
-    const user = userData.get({ plain: true });
-
     const contents = await Content.findAll();
     const content = await contents.map((cont) => cont.get({ plain: true }));
     console.log(content);
-    res.render('inventory', { content }, { user });
+    res.render('inventory', { content });
   } catch (error) {
     res.status(500).send(error);
   }
 });
+
 module.exports = router;

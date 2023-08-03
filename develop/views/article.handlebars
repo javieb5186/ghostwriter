@@ -11,30 +11,31 @@
 
         <!-- login icon => click for dropdown => who is logged in and a logout button -->
         <div class="dropdown is-hoverable px-4 is-right level-right">
-        <div class="dropdown-trigger level-item">
-            <button class="button is-large is-white is-rounded" aria-haspopup="true" aria-controls="dropdown-menu">
-            <span class="icon is-large">
-                <img class="is-rounded" src="{{user.profileIcon}}" alt="profile icon">
-            </span>
-            </button>
+          <div class="dropdown-trigger level-item">
+              <button class="button is-large is-white is-rounded" aria-haspopup="true" aria-controls="dropdown-menu">
+              <span class="icon is-large">
+                  <img class="is-rounded" src="{{user.profileIcon}}" alt="profile icon">
+              </span>
+              </button>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+              <div class="dropdown-content">
+              <div class="dropdown-item">
+                  <p>{{user.name}} is logged in</p>
+              </div>
+              {{!-- {{#if user.isAdmin}} --}}
+              <hr class="dropdown-divider">
+              <a onclick="document.location.replace('/api/admin/adminTools/generator')" href="#" class="dropdown-item">
+                  admin
+              </a>
+              {{!-- {{/if}} --}}
+              <hr class="dropdown-divider">
+              <a href="#" id="logout" class="dropdown-item">
+                  logout
+              </a>
+          </div>
         </div>
-        <div class="dropdown-menu" id="dropdown-menu2" role="menu">
-            <div class="dropdown-content">
-            <div class="dropdown-item">
-                <p>{{user.name}} is logged in</p>
-            </div>
-            {{!-- {{#if user.isAdmin}} --}}
-            <hr class="dropdown-divider">
-            <a onclick="document.location.replace('/api/admin/adminTools/generator')" href="#" class="dropdown-item">
-                admin
-            </a>
-            {{!-- {{/if}} --}}
-            <hr class="dropdown-divider">
-            <a href="#" id="logout" class="dropdown-item">
-                logout
-            </a>
-        </div>
-        </div>
+        
     </section>
 
 {{!-- <section class="hero">
@@ -105,5 +106,6 @@
 </footer>
 {{!-- scripts --}}
 <script src="/js/article.js"></script>
+<script src="/js/logout.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

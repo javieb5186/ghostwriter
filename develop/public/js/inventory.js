@@ -54,3 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
     .then((data) => renderData(data))
     .catch((error) => console.error('Error:', error));
 });
+
+const returnBtn = document.getElementById('return');
+
+returnBtn.addEventListener('click', () => {
+  document.location.replace('/main-news/foryou')
+});
