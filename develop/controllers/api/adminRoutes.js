@@ -7,6 +7,9 @@ const seedDatabase = require('../../seeds/seed');
 const { searchSourceArticlesByCat } = require('../helpers/sourceArticleCatSearch');
 const findArticleById = require('../helpers/article_idSearch');
 
+const { searchByContent } = require('../helpers/contentinv');
+
+
 const router = express.Router();
 
 // Route for seeding DB
@@ -38,6 +41,19 @@ router.get('/fetch-news', async (req, res) => {
     res.json(storedData);
   } catch (error) {
     res.status(500).json({ error: 'Error fetching, storing, or saving news data.' });
+  }
+});
+
+router.get('/searchall', async (req, res) => {
+  
+
+  try {
+  
+    const results = await searchByContent(); 
+    res.json(results);
+  } catch (error) {
+    console.error('Error while searching articles by category:', error);
+    res.status(500).json({ error: 'Error while searching articles by category' });
   }
 });
 
@@ -95,5 +111,47 @@ router.get('/gptAricles/:articleId', async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+
+router.delete('/:id', async (req, res) => {
+  const Content = require('../../models/Content');
+  Content.destroy({
+    where: {
+      article_id:req.params.id
+    },
+  })
+    .then((deletedArticle) => {
+      res.json(deletedArticle);
+   })
+  .catch((err) => res.json(err));
+});
+
+router.put('/:id', async (req, res) => {
+  const Content = require('../../models/Content');
+
+  var temp = req.params.id;
+  const myArray = temp.split("@");
+  // console.log(myArray[0] + " " + myArray[1])
+  Content.update(
+    {
+     
+      Title: myArray[1],
+      
+    },
+    {
+      // Gets the article based on the id given in the request parameters
+      where: {
+        article_id: myArray[0],
+      }
+    }
+  )
+    .then((updatedContent) => {
+      // Sends the updated article as a json response
+      console.log(updatedContent)
+      res.json(updatedContent);
+    })
+    .catch((err) => res.json(err));
+});
+
+
 
 module.exports = router;
